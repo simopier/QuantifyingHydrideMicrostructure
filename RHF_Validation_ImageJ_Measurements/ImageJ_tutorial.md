@@ -1,4 +1,4 @@
-# Tutorial use ImageJ to make measurements of Radial Hydride Fraction on real micrographs for validation. 
+# Tutorial to use ImageJ and make measurements of Radial Hydride Fraction on real micrographs for validation. 
 
 To validate the new definition and implementation of the RHF, the results are compared with human measurements made using ImageJ. 
 The hydrides are approximated as lines drawn with ImageJ on the microstructure. 
