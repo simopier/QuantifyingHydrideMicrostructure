@@ -8,7 +8,7 @@ These lines are then analyzed and used to determine the RHF of the microstructur
 You can download ImageJ [here](https://imagej.nih.gov/ij/download.html).
 
 ## 1 - Download folder containing the validation images. 
-You can download the Validation images for RHF validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/RHF_Validation_Microstructures).
+You can download the Validation images for RHF validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHF_Validation_Microstructures).
 
 ## 2 - Open ImageJ
 * On MAC OS: Open ImageJ
