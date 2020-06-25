@@ -17,7 +17,7 @@ You can download the Validation images for RHF validation [here](https://github.
 ## 3 - Open images
 * Go in __File__ and select __Open__.
 * Then select the image from computer.
-* *At this point you should see another ImageJ tab open of the image*.
+* *At this point you should see another ImageJ tab open with the image*.
 
 ## 4 - Perform measurements  
 * On ImageJ toolbar select __Analyze__. In drop-down menu go under __Tools__ and open __ROI Manager...__.
