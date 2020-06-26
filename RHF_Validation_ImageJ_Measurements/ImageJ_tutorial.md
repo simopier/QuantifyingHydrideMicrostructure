@@ -25,6 +25,7 @@ You can download the Validation images for RHF validation [here](https://github.
 * Check box __Show All__ at bottom of __ROI Manager__ tab
 * If needed, to zoom in and out of certain regions of the image, select the magnifying glass tool on ImageJ main tab, and press the '+' and '-' keys. 
 * Select the __Straight__ box on the ImageJ main tab (fifth one to the right) to be able to draw lines on the microstructure.
+* Make sure you are drawing straight liines by right clicking on the line box and selecting __Straight line__.
 * Draw lines along the hydrides on image tracing hydrides. 
   * To do so, click on one end, and drag until the other end of the hydride you want to approximate with a line, and release. 
   * If you want to change the line you just drew, you can drag the three little squares on the line to change it.
