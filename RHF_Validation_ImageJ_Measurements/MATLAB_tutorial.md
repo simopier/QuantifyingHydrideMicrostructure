@@ -38,7 +38,7 @@ with:
 An example of a call is:
 
 ```
-RHFIntersection_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,InF,'RHF_Validation_Results')
+RHFIntersection_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,inf,'RHF_Validation_Results')
 ```
 
 * *The MATLAB code will open a GUI promptung you to modify the parameters to binarize the image.* 
