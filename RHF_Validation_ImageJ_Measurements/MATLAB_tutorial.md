@@ -9,17 +9,24 @@ Luckily, MATLAB does most of the work and the user is needed only to select the 
 * As a student, you can download MATLAB [here](https://www.mathworks.com/products/matlab/student.html).
 * You can download MATLAB [here](https://www.mathworks.com/products/get-matlab.html?s_tid=gn_getml).
 
-## 2 - Download the MATLAB code
+## 1 - Download the MATLAB code
 You can download the MATLAB code for the Radial Hydride Fraction [here]()0000000000000000.
 
-## 3 - Download folder containing the validation images. 
+## 2 - Download folder containing the validation images. 
 * You can download the folder containing the Validation images for RHF validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHF_Validation_Microstructures).
 * Save the folder in the same folder where you saved the RHF MATLAB code folder (*do not save the image folder in the code folder itself, you should have two separate folders next to each other.*). 
+
+## 3 - Download template_time.xlsx
+You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/template_time.xlsx).
+In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer taking measurements, saving them, etc. Total time corresponds to the active time plus the time the computer took to perform analysis. When using MATLAB, the total time should be alittle more than the active time since the MATLAB code will perform the analysis. It should be around one or two minutes longer. 
 
 ## 4 - Open MATLAB
 * Open the file called __RHFIntersection_main.m__ and make sure that MATLAB is in the code folder.
 
-## 5 - Launch the RHF code 
+## 5 - Start timer
+Make sure to start a timer to keep track of how much time it takes you to perform measurements.
+
+## 6 - Launch the RHF code 
 To launch the code, you need to call the function __RHFIntersection_main__ with the appropriate inputs:
 ```
 RHFIntersection_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution, lengthCut,resultsFolderName)
