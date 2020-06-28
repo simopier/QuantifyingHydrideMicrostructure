@@ -10,16 +10,23 @@ You can download ImageJ [here](https://imagej.nih.gov/ij/download.html).
 ## 1 - Download folder containing the validation images. 
 You can download the Validation images for RHF validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHF_Validation_Microstructures).
 
-## 2 - Open ImageJ
+## 2 - Download template_time.xlsx
+You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/template_time.xlsx).
+In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer taking measurements, saving them, etc. Total time corresponds to the active time plus the time the computer took to perform analysis. When using imageJ, the total time should be equal to the active time.  
+
+## 3 - Open ImageJ
 * On MAC OS: Open ImageJ
 * On Windows: run ImageJ.exe
 
-## 3 - Open images
+## 4 - Start timer
+Make sure to start a timer to keep track of how much time it takes you to perform measurements.
+
+## 5 - Open images
 * Go in __File__ and select __Open__.
 * Then select the image from computer.
 * *At this point you should see another ImageJ tab open with the image*.
 
-## 4 - Perform measurements  
+## 6 - Perform measurements  
 * On ImageJ toolbar select __Analyze__. In drop-down menu go under __Tools__ and open __ROI Manager...__.
 * * A third tab called __ROI manager__ should come up*.
 * Check box __Show All__ at bottom of __ROI Manager__ tab
@@ -34,10 +41,16 @@ You can download the Validation images for RHF validation [here](https://github.
 
 *Always make sure you press the 't' key to save the line you drew, otherwise it won't be saved. If you save a line, it will stay on the image as you draw new ones, otherwise it will disapear.* 
 
-
-## 5 - Save measurements
+## 7 - Save measurements
 * Once you are done approximating the hydrides with the lines you can save your measurements
 * On the __ROI manager__ tab, select __Measure__.
 * *A table should come up with the data*
 * Copy this data into excel
 * Save this file as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv)
+* Repeat this for all images. (Please remember to pause the timer if/when you take breaks)
+
+## 8 - Send measurements
+Once you are done, please send the following files to pjs5523@psu.edu:
+* One .csv file for each image with the line measurements
+* The filled template_time.xlsx file
+
