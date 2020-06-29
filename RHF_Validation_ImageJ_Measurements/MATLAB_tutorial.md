@@ -49,7 +49,11 @@ RHFIntersection_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,
 ```
 
 * *The MATLAB code will open a GUI promptung you to modify the parameters to binarize the image.* 
-* Modify the parameters until you are satisfied with the microstructure on the right. The goal is to keep only the hydrides on the image. Use the threshold values, the spot and hole size controls to remove the dust and other features from the micrographs.
+* Modify the parameters until you are satisfied with the microstructure on the right. The goal is to keep only the hydrides on the image. 
+  * If the background light is non-uniform, you can compensate for it. Select the desired option and then enter the desired value. If needed, 10 would be a good place to start. However, you shouldn't need it for the validation images. 
+  * Use the threshold values to binarize the image. The max value typically stays at the maximum value on the scale. The minimum value depends on the image. You can use the histogram below on the GUI to see where pixel intensity stands.
+  * Use the spot size control to remove the dust and other features from the micrographs.
+  * Use the hole size control to remove white pixels within hydrides.
 * Click OK on the bottom right when you are done with one image.
 * Repeat until you hve binarized all images.
 * Record the active time.
