@@ -21,7 +21,7 @@ You can download the Validation images for RHCP validation [here](https://github
 ## 3 - Download template_time.xlsx
 You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/template_time.xlsx).
 In this file, you can enter how much time it took you to perform the measurements. 
-* __Binarization time__ corresponds to the time it took you to binarize all the images using MATLAB (see step 0000). Please enter the time in minutes.
+* __Binarization time__ corresponds to the time it took you to binarize all the images using MATLAB (see step 7). Please enter the time in minutes.
 * __ImageJ analysis time__ corresponds to the time it took you to plot the paths on the hydride microstructures and save all the results. Please enter the time in minutes.
 * __MATLAB measurements time__ corresponds to the time it took for MATLAB to perform the analysis once you were done binarizing the images. You will not have to do anything during that time. Please enter the time in minutes.
 
