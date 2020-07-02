@@ -132,7 +132,7 @@ for (i = 1; i <yVect.length; i++){
 ## 13 - Save measurements
 * To obtain the position of your clicks, you can either:
   * Activate the macro tab by clicking on it, and then go to __Macros > Run Macro__.
-  * Or go to __Plugins > Macros > Run ...__ and select the file named __Get_line_positions.txt__ that we save at step 00000. 
+  * Or go to __Plugins > Macros > Run ...__ and select the file named __Get_line_positions.txt__ that we save at step 11. 
 * * This will create a tab with the x and y positions of the line you just drew. If you did not go from top to bottom when drawing the line, it will give you an error message. You will need to plot a new line.*
 * Select all the x-y data from the tab and copy paste it into an excel file.
 * Save this file as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv)
