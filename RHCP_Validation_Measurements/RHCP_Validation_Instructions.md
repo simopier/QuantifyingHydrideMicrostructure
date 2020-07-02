@@ -1,4 +1,4 @@
-# Tutorial to use MATLAB and ImageJ and make measurements of Radial Hydride Continuous Path on real micrographs for validation. 
+# Instructions to use MATLAB and ImageJ and make measurements of Radial Hydride Continuous Path on real micrographs for validation. 
 
 To validate the new definition and implementation of the RHCP, the results are compared with human measurements made using ImageJ. 
 The Micrographs are first binarized using MATLAB.
