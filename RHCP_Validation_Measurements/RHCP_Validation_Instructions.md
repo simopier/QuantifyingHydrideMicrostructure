@@ -95,8 +95,8 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 
 ## 10 - Open images
 * Go in __File__ and select __Open__.
-* Then select the image from computer.
-* *At this point you should see another ImageJ tab open with the image*.
+* Then select the image from computer. *Make sure you open the binarized image from the result folder created by MATLAB.*
+* *At this point you should see another ImageJ tab open with the binary image*.
 
 ## 11 - Save Macro
 We will need to save a macro to help us perform the measurements.
