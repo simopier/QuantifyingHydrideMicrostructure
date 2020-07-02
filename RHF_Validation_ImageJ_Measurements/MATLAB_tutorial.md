@@ -21,18 +21,18 @@ You can download the template to enter the time it took to perform the measureme
 In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer taking measurements, saving them, etc. Total time corresponds to the active time plus the time the computer took to perform analysis. When using MATLAB, the total time should be a little more than the active time since the MATLAB code will perform the analysis. It should be around one or two minutes longer. Please enter the times in minutes.
 
 ## 4 - Open MATLAB
-* Open the file called __RHFIntersection_main.m__ and make sure that MATLAB is in the code folder.
+* Open the file called __RHF_main.m__ and make sure that MATLAB is in the code folder.
 
 ## 5 - Start timer
 Make sure to start a timer to keep track of how much time it takes you to perform measurements.
 
 ## 6 - Launch the RHF code 
-*This section seems long, but it actually requires very little time. I just gave many details about all the inputs. If you want to save time, simply look at the end of this step, copy the example call for the function __RHFIntersection_main__ into the  MATLAB console, press enter, and that's it!*
+*This section seems long, but it actually requires very little time. I just gave many details about all the inputs. If you want to save time, simply look at the end of this step, copy the example call for the function __RHF_main__ into the  MATLAB console, press enter, and that's it!*
 
 
-To launch the code, you need to call the function __RHFIntersection_main__ with the appropriate inputs:
+To launch the code, you need to call the function __RHF_main__ with the appropriate inputs:
 ```
-RHFIntersection_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution, lengthCut,resultsFolderName)
+RHF_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,lengthCut,resultsFolderName)
 ```
 with:
 - codeFolderName: The name of the folder in which the RHF code is stored.
@@ -48,7 +48,7 @@ with:
 An example of a call is:
 
 ```
-RHFIntersection_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,Inf,'RHF_Validation_Results')
+RHF_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,Inf,'RHF_Validation_Results')
 ```
 
 ## 3 - Binarize the microstructures
