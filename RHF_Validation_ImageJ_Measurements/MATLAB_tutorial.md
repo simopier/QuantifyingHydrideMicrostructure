@@ -18,7 +18,7 @@ You can download the MATLAB code for the Radial Hydride Fraction [here]()0000000
 
 ## 3 - Download template_time.xlsx
 You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/template_time.xlsx).
-In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer taking measurements, saving them, etc. Total time corresponds to the active time plus the time the computer took to perform analysis. When using MATLAB, the total time should be alittle more than the active time since the MATLAB code will perform the analysis. It should be around one or two minutes longer. 
+In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer taking measurements, saving them, etc. Total time corresponds to the active time plus the time the computer took to perform analysis. When using MATLAB, the total time should be a little more than the active time since the MATLAB code will perform the analysis. It should be around one or two minutes longer. Please enter the times in minutes.
 
 ## 4 - Open MATLAB
 * Open the file called __RHFIntersection_main.m__ and make sure that MATLAB is in the code folder.
@@ -27,6 +27,9 @@ In this file, you can enter how much time it took you to perform the measurement
 Make sure to start a timer to keep track of how much time it takes you to perform measurements.
 
 ## 6 - Launch the RHF code 
+*This section seems long, but it actually requires very little time. I just gave many details about all the inputs. If you want to save time, simply look at the end of this step, copy the example call for the function __RHFIntersection_main__ into the  MATLAB console, press enter, and that's it!*
+
+
 To launch the code, you need to call the function __RHFIntersection_main__ with the appropriate inputs:
 ```
 RHFIntersection_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution, lengthCut,resultsFolderName)
@@ -48,7 +51,8 @@ An example of a call is:
 RHFIntersection_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,Inf,'RHF_Validation_Results')
 ```
 
-* *The MATLAB code will open a GUI promptung you to modify the parameters to binarize the image.* 
+## 3 - Binarize the microstructures
+* *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
 * Modify the parameters until you are satisfied with the microstructure on the right. The goal is to keep only the hydrides on the image. 
   * If the background light is non-uniform, you can compensate for it. Select the desired option and then enter the desired value. If needed, 10 would be a good place to start. However, you shouldn't need it for the validation images. 
   * Use the threshold values to binarize the image. The max value typically stays at the maximum value on the scale. The minimum value depends on the image. You can use the histogram below on the GUI to see where pixel intensity stands.
@@ -56,7 +60,7 @@ RHFIntersection_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,
   * Use the hole size control to remove white pixels within hydrides.
 * Click OK on the bottom right when you are done with one image.
 * Repeat until you hve binarized all images.
-* Record the active time.
+* Record the active time. (Please enter the time in minutes.)
 * *The MATLAB code will then perform the measurements on its own. Which should take one to two minutes*
 
 ## 7 - Send measurements
