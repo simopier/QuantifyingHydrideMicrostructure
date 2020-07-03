@@ -26,18 +26,18 @@ In this file, you can enter how much time it took you to perform the measurement
 * __MATLAB measurements time__ corresponds to the time it took for MATLAB to perform the analysis once you were done binarizing the images. You will not have to do anything during that time. Please enter the time in minutes.
 
 ## 4 - Open MATLAB
-Open the file called __Connectivity_RHCP_main.m__ and make sure that MATLAB is in the code folder.
+Open the file called __RHCP_main.m__ and make sure that MATLAB is in the code folder.
 
 ## 5 - Start timer
 Make sure to start a timer to keep track of how much time it takes you to perform the binarization process.
 
 ## 6 - Launch the RHCP code 
-*This section seems long, but it actually requires very little time. I just gave many details about all the inputs. If you want to save time, simply look at the end of this step, copy the example call for the function __Connectivity_RHCP_main__ into the MATLAB console, press enter, and that's it!*
+*This section seems long, but it actually requires very little time. I just gave many details about all the inputs. If you want to save time, simply look at the end of this step, copy the example call for the function __RHCP_main__ into the MATLAB console, press enter, and that's it!*
 
 
-To launch the code, you need to call the function __Connectivity_RHCP_main__ with the appropriate inputs:
+To launch the code, you need to call the function __RHCP_main__ with the appropriate inputs:
 ```
-Connectivity_RHCP_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName, PerCut, tolConvergence, numPaths, Mutation, primary_nodes_dist, disp_num, disp_size, annealingTime, numRun, CPMax, num_smoothing, fracParamZr, fracParamZrH, valueZrH, num_bands, bridge_criteria_ratio, plotFrequency, desiredAngle, W, y_step)
+RHCP_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName, PerCut, tolConvergence, numPaths, Mutation, primary_nodes_dist, disp_num, disp_size, annealingTime, numRun, CPMax, num_smoothing, fracParamZr, fracParamZrH, valueZrH, num_bands, bridge_criteria_ratio, plotFrequency, desiredAngle, W, y_step)
 ```
 with:
 - codeFolderName: The name of the folder in which the RHF code is stored.
@@ -72,7 +72,7 @@ with:
 An example of a call is:
 
 ```
-Connectivity_RHCP_main('Connectivity_Code_RHCP','RHCP_Validation_Microstructures',100,255,60,10,0,'RHCP_Validation_Results', 0.01, 1e-4, 50, 0.05, 1, 20, 20, 1000, 1, 50001, 1, 50, 1, 1, 5, 0.6, 1000, nan, 13, 10)
+RHCP_main('RHCP_MATLAB_code','RHCP_Validation_Microstructures',100,255,60,10,0,'RHCP_Validation_Results', 0.01, 1e-4, 50, 0.05, 1, 20, 20, 1000, 1, 50001, 1, 50, 1, 1, 5, 0.6, 1000, nan, 13, 10)
 ```
 ## 7 - Binarize the microstructures
 * *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
