@@ -13,7 +13,7 @@ In the meantime, the user can choose to let MATLAB run to determine the RHCP of 
 You can download ImageJ [here](https://imagej.nih.gov/ij/download.html).
 
 ## 1 - Download the MATLAB code
-You can download the MATLAB code for the Radial Hydride Continuous Path in RHCP_Matlab_Code [here](https://github.com/simopier/QuantifyingHydrideMicrostructure). (download the whole folder, not just the files).
+You can download the MATLAB code for the Radial Hydride Continuous Path in __RHCP_Matlab_Code__ [here](https://github.com/simopier/QuantifyingHydrideMicrostructure). Download the whole folder, not just the file.
 
 ## 2 - Download folder containing the validation images. 
 You can download the Validation images for RHCP validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHCP_Validation_Microstructures).
