@@ -72,7 +72,7 @@ with:
 An example of a call is:
 
 ```
-RHCP_main('RHCP_MATLAB_code','RHCP_Validation_Microstructures',100,255,60,10,0,'RHCP_Validation_Results', 0.01, 1e-4, 50, 0.05, 1, 20, 20, 1000, 1, 50001, 1, 50, 1, 1, 5, 0.6, 1000, nan, 13, 10)
+RHCP_main('RHCP_Matlab_code','RHCP_Validation_Microstructures',100,255,60,10,0,'RHCP_Validation_Results', 0.01, 1e-4, 50, 0.05, 1, 20, 20, 1000, 1, 50001, 1, 50, 1, 1, 5, 0.6, 1000, nan, 13, 10)
 ```
 ## 7 - Binarize the microstructures
 * *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
