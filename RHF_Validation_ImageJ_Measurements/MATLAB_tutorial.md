@@ -10,7 +10,7 @@ Luckily, MATLAB does most of the work and the user is needed only to select the 
 * You can download MATLAB [here](https://www.mathworks.com/products/get-matlab.html?s_tid=gn_getml).
 
 ## 1 - Download the MATLAB code
-You can download the MATLAB code for the Radial Hydride Fraction [here]()0000000000000000.
+You can download the MATLAB code for the Radial Hydride Fraction in __RHF_Matlab_Code__ [here](https://github.com/simopier/QuantifyingHydrideMicrostructure). Download the whole folder, not just the files.
 
 ## 2 - Download folder containing the validation images. 
 * You can download the folder containing the Validation images for RHF validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHF_Validation_Microstructures).
