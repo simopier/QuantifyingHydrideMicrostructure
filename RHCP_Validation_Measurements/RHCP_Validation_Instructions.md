@@ -85,20 +85,13 @@ RHCP_main('RHCP_Matlab_code','RHCP_Validation_Microstructures',100,255,60,10,0,'
 * Repeat until you hve binarized all images.
 * Record the active time. (Please enter the time in minutes in __template_time.xlsx__.)
 * *The MATLAB code will then perform the measurements on its own. However, the RHCP calculations can take a long time (several hours for all images). If you want, you can stop the algorithm and I can perform the MATLAB calculations from your binarized images.*
+* __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to binarize the images__.
 
 ## 8 - Open ImageJ
 * On MAC OS: Open ImageJ
 * On Windows: run ImageJ.exe
 
-## 9 - Start timer
-Make sure to start a timer to keep track of how much time it takes you to perform measurements using ImageJ.
-
-## 10 - Open images
-* Go in __File__ and select __Open__.
-* Then select the image from computer. *Make sure you open the binarized image from the result folder created by MATLAB.*
-* *At this point you should see another ImageJ tab open with the binary image*.
-
-## 11 - Save Macro
+## 9 - Save Macro
 We will need to save a macro to help us perform the measurements.
 * Go in __Plugins > New > Macro__.
 * *A tab called __Macro.txt__ will open.*
@@ -117,6 +110,14 @@ for (i = 1; i <yVect.length; i++){
 * Save the new macro in __ImageJ > macros__ with the name: __Get_line_positions.txt__.
 * *It will be easier later if you keep that tab open, but you can close it.*
 
+## 10 - Start timer
+Make sure to start a timer to keep track of how much time it takes you to perform measurements using ImageJ.
+
+## 11 - Open images
+* Go in __File__ and select __Open__.
+* Then select the image from computer. *Make sure you open the __jpeg__ binarized image from the __result folder__ created by MATLAB.*
+* *At this point you should see another ImageJ tab open with the binary image*.
+
 ## 12 - Perform measurements / Draw lines on ImageJ
 
 * If needed, to zoom in and out of certain regions of the image, select the magnifying glass tool on ImageJ main tab, and press the '+' and '-' keys. 
@@ -132,11 +133,12 @@ for (i = 1; i <yVect.length; i++){
 ## 13 - Save measurements
 * To obtain the position of your clicks, you can either:
   * Activate the macro tab by clicking on it, and then go to __Macros > Run Macro__.
-  * Or go to __Plugins > Macros > Run ...__ and select the file named __Get_line_positions.txt__ that we save at step 11. 
+  * Or go to __Plugins > Macros > Run ...__ and select the file named __Get_line_positions.txt__ that we save at step 9. 
 * * This will create a tab with the x and y positions of the line you just drew. If you did not go from top to bottom when drawing the line, it will give you an error message. You will need to plot a new line.*
 * Select all the x-y data from the tab and copy paste it into an excel file.
-* Save this file as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv)
+* Save this file in the result folder as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv)
 * Repeat this for all images. (Please remember to pause the timer if/when you take breaks).
+* __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to take measurements with imageJ__.
 
 ## 14 - Send measurements
 Once you are done, please send the following files to pjs5523@psu.edu:
