@@ -58,10 +58,14 @@ RHF_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,Inf,
   * Use the threshold values to binarize the image. The max value typically stays at the maximum value on the scale. The minimum value depends on the image. You can use the histogram below on the GUI to see where pixel intensity stands.
   * Use the spot size control to remove the dust and other features from the micrographs.
   * Use the hole size control to remove white pixels within hydrides.
-* Click OK on the bottom right when you are done with one image.
+* Click OK on the bottom right when you are done with the image (See below for an example of binarization).
 * Repeat until you hve binarized all images.
 * Record the active time. (Please enter the time in minutes.)
 * *The MATLAB code will then perform the measurements on its own. Which should take one to two minutes*
+
+| Microstructure      | Binarized microstructure      |
+|------------|-------------|
+| <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Example_microstructure.png" width="250"> | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Example_microstructure_binary.png" width="250"> |
 
 ## 7 - Send measurements
 Once you are done, please send the following files to pjs5523@psu.edu:
