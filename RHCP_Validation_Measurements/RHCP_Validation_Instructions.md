@@ -81,11 +81,14 @@ RHCP_main('RHCP_Matlab_code','RHCP_Validation_Microstructures',100,255,60,10,0,'
   * Use the threshold values to binarize the image. The max value typically stays at the maximum value on the scale. The minimum value depends on the image. You can use the histogram below on the GUI to see where pixel intensity stands.
   * Use the spot size control to remove the dust and other features from the micrographs.
   * Use the hole size control to remove white pixels within hydrides.
-* Click OK on the bottom right when you are done with one image.
+* Click OK on the bottom right when you are done with one image (see example of image binarization below).
 * Repeat until you hve binarized all images.
 * Record the active time. (Please enter the time in minutes in __template_time.xlsx__.)
 * *The MATLAB code will then perform the measurements on its own. However, the RHCP calculations can take a long time (several hours for all images). If you want, you can stop the algorithm and I can perform the MATLAB calculations from your binarized images.*
 * __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to binarize the images__.
+
+
+![alt text](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Example_microstructrure_binary.tiff)
 
 ## 8 - Open ImageJ
 * On MAC OS: Open ImageJ
