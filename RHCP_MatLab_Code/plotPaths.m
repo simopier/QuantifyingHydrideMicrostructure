@@ -49,10 +49,11 @@ if (mod(figureNumber,plotFrequency)==1) % only plots every plotFrequency steps
         plot(path(:,1),path(:,2),'-','LineWidth',3);
     end
 
-    plot([1 size(path(:,2),1)+90],[1 1],'k-','LineWidth',1)
-    plot([1 size(path(:,2),1)-1+90],[size(path(:,2),1) size(path(:,2),1)],'k-','LineWidth',1)
-    plot([1 1],[1 size(path(:,2),1)],'k-','LineWidth',1)
-    plot([size(path(:,2),1)-1+88 size(path(:,2),1)-1+88],[1 size(path(:,2),1)],'k-','LineWidth',1)
+    % for verification
+%     plot([1 size(path(:,2),1)+90],[1 1],'k-','LineWidth',1)
+%     plot([1 size(path(:,2),1)-1+90],[size(path(:,2),1) size(path(:,2),1)],'k-','LineWidth',1)
+%     plot([1 1],[1 size(path(:,2),1)],'k-','LineWidth',1)
+%     plot([size(path(:,2),1)-1+88 size(path(:,2),1)-1+88],[1 size(path(:,2),1)],'k-','LineWidth',1)
     % Save figure
     opts.width      = 20;
     opts.height     = 20;

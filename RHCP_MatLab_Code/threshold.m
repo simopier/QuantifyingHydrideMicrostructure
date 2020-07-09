@@ -1,8 +1,7 @@
 %  File and function name : threshold
 %  Written by    :  Image Analyst
 %  Date : August 2006 - Nov. 2010
-%  Edited by  Pierre-Clement Simon in July 2020 to adapt it to the image
-%  analysis project for zirconium hydrides.
+%  Edited by  Pierre-Clement Simon in April 2018
 %  Description   :  This program takes a color or monochrome image and lets
 %                   the user threshold the monochrome image, or a single
 %                   color band of a color image, via sliders to set the
@@ -110,7 +109,7 @@ try
 	% Turn off this warning "Warning: Image is too big to fit on screen; displaying at 33% "
 	warning('off', 'Images:initSize:adjustingMag');
 	imageToDisplay = [];	% Default to not displaying a separately supplied image.
-	
+
 	numberOfArguments = nargin;
 	if numberOfArguments <= 4
 		% They ran this m-file with no arguments being passed in.
@@ -163,13 +162,13 @@ try
 		% but want to threshold on its gray scale version in ImageFilename.
 		[g_MinThreshold, g_MaxThreshold, g_SizeSpot, g_SizeHole, g_removeBorders, g_nonUniformBackground, g_nonUniformBackground_value, ImageFilename, binsToSuppress, threshold2Use, imageToDisplay] = deal(varargin{:}); % copies the contents of the cell array X to the separate variables Y1, Y2, Y3, ...
 	end
-	
+
 	Original_Image =[];
 	image_filename ='';
 	axes1_image = [];
 	axes2_image = [];
 	axes(handles.axes1);
-	
+
 	% Store input array or file into image array variable.
 	if isa(ImageFilename, 'char')
 		%disp 'ImageFilename is a char';
@@ -196,7 +195,7 @@ try
 			set(handles.listbox_DisplayColorBand, 'Visible', 'off');
 			set(handles.axesHist, 'visible', 'on');	% Make it visible (it was off for startup until and image is displayed.)
 		end
-		
+
 		Original_Image = ImageFilename;
 		axes1_image = Original_Image;
 		axes(handles.axes1)
@@ -222,25 +221,25 @@ try
 		set(handles.edit_Min, 'Visible', 'off');
 		set(handles.text_Min, 'Visible', 'off');
 	end
-	
+
 	% turn off the min threshold if need be
 	if g_useMaxThreshold == 0
 		set(handles.slider_Max, 'Visible', 'off');
 		set(handles.edit_Max, 'Visible', 'off');
 		set(handles.text_Max, 'Visible', 'off');
 	end
-	
+
 	% Set up the slider range.
 	maxSliderValue = max(max(Original_Image));
 	minSliderValue = min(min(Original_Image));
-	
+
 	% The above two will be 1x1x3 arrays if the image is a color image.
 	% Set sliders to the extreme if it's color.
 	if numberOfColorBands > 1
 		maxSliderValue = max(maxSliderValue);
 		minSliderValue = min(minSliderValue);
 	end
-	
+
 	range = maxSliderValue - minSliderValue;
 	% Specify the amount to move when they click the scroll bar arrow.
 	% Determine if image is floating or integer
@@ -258,7 +257,7 @@ try
 			slider_step(2) = 1000.0 / double(range);
 		end
 	end
-	
+
 	% Warning: slider control can not have a Value outside of Min/Max range
 	% Control will not be rendered until all of its parameter values are valid.
 	% also, if either the min or max is not being used, set it to the
@@ -266,16 +265,16 @@ try
 	if g_MinThreshold < minSliderValue || g_MinThreshold > maxSliderValue || g_useMinThreshold == 0
 		g_MinThreshold = minSliderValue;
 	end
-	
+
 	if g_MaxThreshold < minSliderValue || g_MaxThreshold > maxSliderValue || g_useMaxThreshold == 0
 		g_MaxThreshold = maxSliderValue;
 	end
-	
+
 	% If they're the same, make the max of the range be the max available.
 	if g_MaxThreshold == g_MinThreshold
 		g_MaxThreshold = maxSliderValue;	% Select bright objects.
-	end
-	
+  end
+
     g_nonUniformBackground_value = 1;
 
     set(handles.nonUniformBackgroundDontCompensate, 'value', true);
@@ -289,10 +288,10 @@ try
     set(handles.edit_holesize, 'string',g_SizeHole);
     set(handles.radDontRemoveBorders, 'value', true);
     set(handles.radRemoveBorders, 'value', false);
-	
+
 	% Plot the histogram
 	PlotHistogram(handles, Original_Image, binsToSuppress);
-	
+
 	ShowThresholdedBinaryImage(hObject, eventdata, handles);
 	% Enlarge figure to full screen.
 	% 	set(gcf, 'Position', get(0,'Screensize')); % Enlarge figure to full screen.
@@ -397,9 +396,9 @@ try
 	if g_Floating == 0
 		maxSliderValue = round(maxSliderValue);
 	end
-	
+
 	%disp(['Moved max slider.  New value = ' num2str(maxSliderValue)]);
-	
+
 	% Make sure it's not greater than the Max slider.
 	if (maxSliderValue < g_MinThreshold)
 		% Illegal value. Clip to maxSliderValue
@@ -413,12 +412,12 @@ try
 		% Update the label.
 		set(handles.edit_Max, 'string', num2str(maxSliderValue));
 	end
-	
+
 	% Call guidata anytime you use the set() command or directly access
 	% a variable you added to the handles structure.  Generally it's a good
 	% practice to just automatically add this at the end of every function.
 	guidata(hObject, handles);
-	
+
 	% Apply the threshold to the display so we can see its effect.
 	ShowThresholdedBinaryImage(hObject, eventdata, handles);
 catch ME
@@ -449,9 +448,9 @@ try
 	if g_Floating == 0
 		minSliderValue = round(minSliderValue);
 	end
-	
+
 	%disp(['Moved min slider.  New value = ' num2str(minSliderValue)]);
-	
+
 	% Make sure it's not greater than the Max slider.
 	if (minSliderValue > g_MaxThreshold)
 		% Illegal value. Clip to maxSliderValue
@@ -469,7 +468,7 @@ try
 	% a variable you added to the handles structure.  Generally it's a good
 	% practice to just automatically add this at the end of every function.
 	guidata(hObject, handles);
-	
+
 	% Apply the threshold to the display so we can see its effect.
 	ShowThresholdedBinaryImage(hObject, eventdata, handles);
 catch ME
@@ -487,7 +486,7 @@ global g_MinThreshold;
 global g_LastThresholdedColorBand;
 try
 	g_LastThresholdedColorBand = get(handles.listbox_DisplayColorBand,'Value') - 1;
-	
+
 	% Get the value from the control.
 	max_value = str2double(get(handles.edit_Max,'string'));
 	if (max_value <= 255) && (max_value >= g_MinThreshold) && isnan(max_value) == false
@@ -516,7 +515,7 @@ global g_MinThreshold;
 global g_LastThresholdedColorBand;
 try
 	g_LastThresholdedColorBand = get(handles.listbox_DisplayColorBand,'Value') - 1;
-	
+
 	min_value = str2double(get(handles.edit_Min,'string'));
 	if (min_value >= 0) && (min_value <= g_MaxThreshold) && isnan(min_value) == false
 % 		g_MinThreshold = round(min_value); % Only for integer data types, if that.
@@ -646,7 +645,7 @@ try
 		set(handles.edit_Max, 'Enable', 'on');
 		set(handles.axesHist, 'visible', 'on');	% Make it visible (it was off for startup until and image is displayed.)
     end
-    
+
     	switch colorBand
 		case 1 % Full color
 			axes1_image = Original_Image;
@@ -663,7 +662,7 @@ try
 		otherwise
 			errormessage = 'Invalid selection';
 	end
-	
+
 	if colorBand >= 2 && colorBand <= 4
 		% Plot the histogram
 		PlotHistogram(handles, axes1_image, []);
@@ -722,14 +721,14 @@ try
 
             axes1_image = imcomplement(axes1_image);
             axes2_image = imcomplement(axes2_image);
-		% Set all pixels which are in the threshold selection range to white/true/1,
-		% and all pixels which are outside the threshold selection range to black/false/0.
+            % Set all pixels which are in the threshold selection range to white/true/1,
+            % and all pixels which are outside the threshold selection range to black/false/0.
             axes2_image = (g_MinThreshold <= axes2_image) & (axes2_image <= g_MaxThreshold);
 
         else
             % Set all pixels which are in the threshold selection range to white/true/1,
             % and all pixels which are outside the threshold selection range to black/false/0.
-		axes2_image = (g_MinThreshold <= axes1_image) & (axes1_image <= g_MaxThreshold);
+            axes2_image = (g_MinThreshold <= axes1_image) & (axes1_image <= g_MaxThreshold);
 
         end
 		% axes2_image will be a binary (logical) image with values of 0 and/or 1 (false or true) only.
@@ -745,8 +744,8 @@ try
         % groups of pixels)
         axes2_image = imcomplement(bwareaopen(imcomplement(axes2_image), g_SizeSpot));
         % fill the small holes in the hydrides
-        axes2_image = (bwareaopen(axes2_image, g_SizeHole)); 
-		
+        axes2_image = (bwareaopen(axes2_image, g_SizeHole));
+
 		try
 			set(handles.txtInfo,'string','Displaying Axes2 image');
 			imshow(axes2_image,'InitialMagnification', 'fit');
@@ -809,13 +808,13 @@ try
             axes1_image = imcomplement(axes1_image);
             axes3_image = imcomplement(axes3_image);
 
-		% Set all pixels which are in the threshold selection range to white/true/1,
-		% and all pixels which are outside the threshold selection range to black/false/0.
+            % Set all pixels which are in the threshold selection range to white/true/1,
+            % and all pixels which are outside the threshold selection range to black/false/0.
             axes3_image = (g_MinThreshold <= axes3_image) & (axes3_image <= g_MaxThreshold);
         else
             % Set all pixels which are in the threshold selection range to white/true/1,
             % and all pixels which are outside the threshold selection range to black/false/0.
-		axes3_image = (g_MinThreshold <= axes1_image) & (axes1_image <= g_MaxThreshold);
+            axes3_image = (g_MinThreshold <= axes1_image) & (axes1_image <= g_MaxThreshold);
         end
 		% axes3_image will be a binary (logical) image with values of 0 and/or 1 (false or true) only.
         % Remove the black pixels at the borders of the image if asked
@@ -830,12 +829,12 @@ try
         % groups of pixels)
         axes3_image = imcomplement(bwareaopen(imcomplement(axes3_image), g_SizeSpot));
         % fill the small holes in the hydrides
-        axes3_image = (bwareaopen(axes3_image, g_SizeHole)); 
+        axes3_image = (bwareaopen(axes3_image, g_SizeHole));
 
         % Determine the number of hydrides found after thinning
         % the hydride is reduced to a curve with a thickness of one pixel. This
         % provides better results for the curvature measurements, and fastens the
-        % algorithm because less information is being treated. 
+        % algorithm because less information is being treated.
         axes3_image = imcomplement(bwmorph(imcomplement(axes3_image),'thin',Inf));
             % Erase the cluster of less than Nsize2 pixels (clean the image from isolated
             %groups of pixels)
@@ -849,7 +848,7 @@ try
             CC=bwconncomp(imcomplement(axes3_image));
             numberHydrides=CC.NumObjects;
             set(handles.numberhydrideBox,'String',numberHydrides);
-		
+
 		try
 			set(handles.txtInfo,'string','Displaying Axes3 image');
 			imshow(axes3_image,'InitialMagnification', 'fit');
@@ -901,7 +900,7 @@ try
 			% Check to verify that range is now 0-1.
 			minValueNorm = min(min(normalizedImage));
 			maxValueNorm = max(max(normalizedImage));
-			
+
 			% Let's get its histogram into 256 bins.
 			[counts, grayLevelsD] = imhist(normalizedImage, 256);
 			% But now grayLevelsD goes from 0 to 1.
@@ -914,7 +913,7 @@ try
 			% Get a histogram of the entire image.
 			[counts, grayLevels] = imhist(imageArray, numberOfBins);    % make sure you label the axes after imhist because imhist will destroy them.
 		end
-		
+
 		% Find the last non-zero bin so we can plot just up to there to get better horizontal resolution.
 		lastBinUsed = find(counts > 0, 1, 'last');
 		% Find the first non-zero bin.
@@ -928,7 +927,7 @@ try
 			bin = find(grayLevels == grayLevelToSuppress, 1, 'first');
 			counts(bin) = 0;
 		end
-		
+
 		% Get rid of outliers.
 		% Find the max of the two bins on either side of a bin
 		maxOfNeighborBins = imdilate(counts, [1;0;1]);
@@ -936,7 +935,7 @@ try
 		tallSpikes = counts > 5 * maxOfNeighborBins;
 		% Set those bins to the max of the neighbor bins.
 		counts(tallSpikes) = maxOfNeighborBins(tallSpikes);
-		
+
 		% Plot the histogram in the histogram viewport.
 		set(handles.axesHist, 'visible', 'on');	% Make it visible (it was off for startup until and image is displayed.)
 		axes(handles.axesHist);  % makes existing axes handles.axesHist the current axes.
@@ -998,6 +997,7 @@ try
 		end
 		if dblHighThreshold > maxXValue
 			dblHighThreshold = double(maxXValue);
+            dblHighThreshold
         end
 		% Erase the old lines.
 		% Need to specify handles in findobj, otherwise it will get hggroups in other figures,
@@ -1008,7 +1008,7 @@ try
 		% 		delete(hOldHighBar);
 		delete(hNewLowBar);
 		delete(hNewHighBar);
-		
+
 		% Draw a vertical line at the threshold to show where we're splitting the histogram.
 		hold on;
 		YRange = get(handles.axesHist, 'YLim');
@@ -1282,7 +1282,7 @@ global g_SizeSpot;
 global g_LastThresholdedColorBand;
 try
 	g_LastThresholdedColorBand = get(handles.listbox_DisplayColorBand,'Value') - 1;
-	
+
     % Get the value from the control.
 	spotsize_value = str2double(get(handles.edit_spotsize,'string'));
 	%if (g_SizeSpot >= 0) && isnan(g_SizeSpot) == false
@@ -1291,7 +1291,7 @@ try
     if (spotsize_value >= 0)
         g_SizeSpot = spotsize_value;
     end
-    
+
 	set(handles.edit_spotsize,'string',g_SizeSpot);
 	% Call guidata anytime you use the set() command or directly access
 	% a variable you added to the handles structure.  Generally it's a good
@@ -1342,7 +1342,7 @@ global g_SizeHole;
 global g_LastThresholdedColorBand;
 try
 	g_LastThresholdedColorBand = get(handles.listbox_DisplayColorBand,'Value') - 1;
-	
+
     % Get the value from the control.
 	holesize_value = str2double(get(handles.edit_holesize,'string'));
 	%if (g_SizeHole >= 0) && isnan(g_SizeHole) == false
@@ -1351,7 +1351,7 @@ try
     if (holesize_value >= 0)
         g_SizeHole = holesize_value;
     end
-    
+
 	set(handles.edit_holesize,'string',g_SizeHole);
 	% Call guidata anytime you use the set() command or directly access
 	% a variable you added to the handles structure.  Generally it's a good
