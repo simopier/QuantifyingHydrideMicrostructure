@@ -87,8 +87,9 @@ RHCP_main('RHCP_Matlab_code','RHCP_Validation_Microstructures',100,255,60,10,0,'
 * *The MATLAB code will then perform the measurements on its own. However, the RHCP calculations can take a long time (several hours for all images). If you want, you can stop the algorithm and I can perform the MATLAB calculations from your binarized images.*
 * __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to binarize the images__.
 
-
-![alt text](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Example_microstructrure_binary.tiff)
+| Microstructure      | Binarized microstructure      |
+|------------|-------------|
+| <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Example_microstructure.png" width="250"> | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Example_microstructure_binary.png" width="250"> |
 
 ## 8 - Open ImageJ
 * On MAC OS: Open ImageJ
