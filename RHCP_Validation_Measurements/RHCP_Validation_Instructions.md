@@ -139,8 +139,7 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
   * Activate the macro tab by clicking on it, and then go to __Macros > Run Macro__.
   * Or go to __Plugins > Macros > Run ...__ and select the file named __Get_line_positions.txt__ that we save at step 9. 
 * * This will create a tab with the x and y positions of the line you just drew. If you did not go from top to bottom when drawing the line, it will give you an error message. You will need to plot a new line.*
-* Select all the x-y data from the tab and copy paste it into an excel file.
-* Save this file in the result folder as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv)
+* Select __Files > Save As...__ to save this file in the results folder as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv).
 * Repeat this for all images. (Please remember to pause the timer if/when you take breaks).
 * __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to take measurements with imageJ__.
 
