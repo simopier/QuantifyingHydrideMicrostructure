@@ -32,7 +32,7 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 * Check box __Show All__ at bottom of __ROI Manager__ tab
 * If needed, to zoom in and out of certain regions of the image, select the magnifying glass tool on ImageJ main tab, and press the '+' and '-' keys. 
 * Select the __Straight__ box on the ImageJ main tab (fifth one to the right) to be able to draw lines on the microstructure.
-* Make sure you are drawing straight liines by right clicking on the line box and selecting __Straight line__.
+* Make sure you are drawing straight lines by right clicking on the line box and selecting __Straight line__.
 * Draw lines along the hydrides on image tracing hydrides. 
   * To do so, click on one end, and drag until the other end of the hydride you want to approximate with a line, and release. 
   * If you want to change the line you just drew, you can drag the three little squares on the line to change it.
@@ -45,8 +45,7 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 * Once you are done approximating the hydrides with the lines you can save your measurements
 * On the __ROI manager__ tab, select __Measure__.
 * *A table should come up with the data*
-* Copy this data into excel
-* Save this file as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv)
+* Select __Files > Save As...__ to save this file in the results folder as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv).
 * Repeat this for all images. (Please remember to pause the timer if/when you take breaks)
 
 ## 8 - Send measurements
