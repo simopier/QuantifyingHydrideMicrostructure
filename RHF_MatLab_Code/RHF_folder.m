@@ -37,8 +37,8 @@ function [ ] = RHF_folder(codeFolderName, imageFolderName, resultsFolderName, re
 % create a list of their names stored in string and in double.
 % Warning: images names need to contain numbers only
 
+MyFolderInfo = dir2(['../' imageFolderName ]);
 cd ../
-MyFolderInfo = dir2(imageFolderName);
 cd(codeFolderName)
 names_vect=strings(size(MyFolderInfo,1),1);
 number_vect=zeros(size(MyFolderInfo,1),1);

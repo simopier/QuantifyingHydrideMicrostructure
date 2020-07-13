@@ -81,16 +81,18 @@ RHF_ideal_vect = results_vect(:,2);
 RHF_previous_vect = results_vect(:,3);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Determine the error %%%%%%%%%%%%%%%%%%%%%%%%%%%
-RHF_MATLAB_error_vect = abs(RHF_MATLAB_vect-RHF_ideal_vect)./RHF_ideal_vect.*100;
-RHF_previous_error_vect = abs(RHF_previous_vect-RHF_ideal_vect)./RHF_ideal_vect.*100;
+RHF_MATLAB_error_vect = abs(RHF_MATLAB_vect-RHF_ideal_vect);
+RHF_previous_error_vect = abs(RHF_previous_vect-RHF_ideal_vect);
+RHF_MATLAB_error_per_vect = abs(RHF_MATLAB_vect-RHF_ideal_vect)./RHF_ideal_vect.*100;
+RHF_previous_error_per_vect = abs(RHF_previous_vect-RHF_ideal_vect)./RHF_ideal_vect.*100;
 
 %%%%%%%%%%%% Save results in .csv file in the result folder %%%%%%%%%%%%%%%
 cd ../
 cd(resultsFolderName)
-results_mat=[image_number_vect RHF_ideal_vect RHF_MATLAB_vect RHF_MATLAB_error_vect RHF_previous_vect RHF_previous_error_vect];
+results_mat=[image_number_vect RHF_ideal_vect RHF_MATLAB_vect RHF_MATLAB_error_vect RHF_MATLAB_error_per_vect RHF_previous_vect RHF_previous_error_vect RHF_previous_error_per_vect];
 resultsRHFName=['RHF_Validation_results' '.csv'];
 % add a header
-cHeader = {'Image number' 'Radial Hydride Fraction ideal IMAGEJ' 'Radial Hydride Fraction MATLAB' 'Radial Hydride Fraction MATLAB error %' 'Radial Hydride Fraction previous IMAGEJ' 'Radial Hydride Fraction previous IMAGEJ error %'}; %header
+cHeader = {'Image number' 'Radial Hydride Fraction ideal IMAGEJ' 'Radial Hydride Fraction MATLAB' 'Radial Hydride Fraction MATLAB error' 'Radial Hydride Fraction MATLAB error %' 'Radial Hydride Fraction previous IMAGEJ' 'Radial Hydride Fraction previous IMAGEJ error' 'Radial Hydride Fraction previous IMAGEJ error %'}; %header
 textHeader = strjoin(cHeader, ',');
 % write header to file
 fid = fopen(resultsRHFName,'w'); 

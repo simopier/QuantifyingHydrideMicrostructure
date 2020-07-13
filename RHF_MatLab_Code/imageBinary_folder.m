@@ -43,8 +43,8 @@ function [ ] = imageBinary_folder( codeFolderName, ImageFolderName, startingLowT
 % create a list of their names stored in string and in double.
 % Warning: images names need to contain numbers only
 
+MyFolderInfo = dir2(['../' ImageFolderName ]);
 cd ../
-MyFolderInfo = dir2(ImageFolderName);
 cd(codeFolderName)
 names_vect=strings(size(MyFolderInfo,1),1);
 number_vect=zeros(size(MyFolderInfo,1),1);

@@ -39,8 +39,8 @@ function [resolution] = imageResolution( codeFolderName, imageFolderName, resolu
 
 if resolution ==0
     % Finds the resolution of one of the images
+    MyFolderInfo = dir2(['../' imageFolderName ]);
     cd ../
-    MyFolderInfo = dir2(imageFolderName);
     filename=MyFolderInfo(1).name;
     cd(imageFolderName)
     info = imfinfo(filename);
