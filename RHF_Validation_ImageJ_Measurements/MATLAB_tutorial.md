@@ -16,7 +16,7 @@ To test if the image processing toolbox is installed in MATLAB, you can open MAT
 hasIPT = license('test', 'image_toolbox');
 if ~hasIPT
 	% User does not have the toolbox installed.
-	message = sprintf('Sorry, but you do not seem to have the Image Processing Toolbox.\nDo you want to try to continue anyway (Not recommended, as this will not work)? \n To install the toolbox, visit: https://www.mathworks.com/matlabcentral/answers/101885-how-do-i-install-additional-toolboxes-into-an-existing-installation-of-matlab');
+	message = sprintf('Sorry, but you do not seem to have the Image Processing Toolbox.\nDo you want to try to continue anyway (Not recommended, as this will not work)? \n To install the toolbox, if you have a recent version, on the main MATLAB window, go to __Home>Adds-Ons>Get Adds-Ons__ and find the Image processing toolbox. Otherwise, visit: https://www.mathworks.com/matlabcentral/answers/101885-how-do-i-install-additional-toolboxes-into-an-existing-installation-of-matlab');
 	reply = questdlg(message, 'Toolbox missing', 'Yes', 'No', 'Yes');
 	if strcmpi(reply, 'No')
 		% User said No, so exit.
@@ -26,7 +26,7 @@ else
  message = sprintf('You have the the Image Processing Toolbox.');
 end
 ```
-To install the toolbox, visit [this page](https://www.mathworks.com/matlabcentral/answers/101885-how-do-i-install-additional-toolboxes-into-an-existing-installation-of-matlab) for instructions.
+To install the toolbox, if you have a recent version, on the main MATLAB window, go to __Home>Adds-Ons>Get Adds-Ons__ and find the Image processing toolbox. Otherwise, visit [this page](https://www.mathworks.com/matlabcentral/answers/101885-how-do-i-install-additional-toolboxes-into-an-existing-installation-of-matlab) for instructions.
 
 
 ## 1 - Download the MATLAB code
