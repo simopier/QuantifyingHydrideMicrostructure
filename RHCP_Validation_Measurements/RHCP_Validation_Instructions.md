@@ -10,7 +10,27 @@ In the meantime, the user can choose to let MATLAB run to determine the RHCP of 
 * As a student, you can download MATLAB [here](https://www.mathworks.com/products/matlab/student.html).
 * You can download MATLAB [here](https://www.mathworks.com/products/get-matlab.html?s_tid=gn_getml).
 
-You can download ImageJ [here](https://imagej.nih.gov/ij/download.html).
+* __When selecting the toolboxes, install the Image Processing Toolbox, which will be used by the software.__ 
+
+To test if the image processing toolbox is installed in MATLAB, you can open MATLAB and copy and run the following lines in the MATLAB console:
+```
+hasIPT = license('test', 'image_toolbox');
+if ~hasIPT
+	% User does not have the toolbox installed.
+	message = sprintf('Sorry, but you do not seem to have the Image Processing Toolbox.\nDo you want to try to continue anyway (Not recommended, as this will not work)? \n To install the toolbox, visit: https://www.mathworks.com/matlabcentral/answers/101885-how-do-i-install-additional-toolboxes-into-an-existing-installation-of-matlab');
+	reply = questdlg(message, 'Toolbox missing', 'Yes', 'No', 'Yes');
+	if strcmpi(reply, 'No')
+		% User said No, so exit.
+		return;
+	end
+else
+ message = sprintf('You have the the Image Processing Toolbox.');
+end
+```
+To install the toolbox, visit [this page](https://www.mathworks.com/matlabcentral/answers/101885-how-do-i-install-additional-toolboxes-into-an-existing-installation-of-matlab) for instructions.
+
+
+* You can download ImageJ [here](https://imagej.nih.gov/ij/download.html).
 
 ## 1 - Download the MATLAB code
 You can download the MATLAB code for the Radial Hydride Continuous Path in __RHCP_Matlab_Code__ [here](https://github.com/simopier/QuantifyingHydrideMicrostructure). Download the whole folder, not just the file.
