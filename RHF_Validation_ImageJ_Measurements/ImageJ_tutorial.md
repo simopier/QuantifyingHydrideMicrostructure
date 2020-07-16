@@ -10,8 +10,8 @@ You can download ImageJ [here](https://imagej.nih.gov/ij/download.html).
 ## 1 - Download folder containing the validation images. 
 You can download the Validation images for RHF validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHF_Validation_Microstructures).
 
-## 2 - Download template_time.xlsx
-You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/template_time.xlsx).
+## 2 - Download RHF_template_time.xlsx
+You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/RHF_template_time.xlsx).
 In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer taking measurements, saving them, etc. Total time corresponds to the active time plus the time the computer took to perform analysis. When using imageJ, the total time should be equal to the active time.  
 
 ## 3 - Open ImageJ
@@ -51,5 +51,5 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 ## 8 - Send measurements
 Once you are done, please send the following files to pjs5523@psu.edu:
 * One .csv file for each image with the line measurements
-* The filled template_time.xlsx file
+* The filled RHF_template_time.xlsx file
 
