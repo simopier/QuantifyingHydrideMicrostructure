@@ -38,8 +38,8 @@ You can download the MATLAB code for the Radial Hydride Continuous Path in __RHC
 ## 2 - Download folder containing the validation images. 
 You can download the Validation images for RHCP validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHCP_Validation_Microstructures).
 
-## 3 - Download template_time.xlsx
-You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/template_time.xlsx).
+## 3 - Download RHCP_template_time.xlsx
+You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/RHCP_template_time.xlsx).
 In this file, you can enter how much time it took you to perform the measurements. 
 * __Binarization time__ corresponds to the time it took you to binarize all the images using MATLAB (see step 7). Please enter the time in minutes.
 * __ImageJ analysis time__ corresponds to the time it took you to plot the paths on the hydride microstructures and save all the results. Please enter the time in minutes.
@@ -103,7 +103,7 @@ RHCP_main('RHCP_Matlab_code','RHCP_Validation_Microstructures',100,255,60,10,0,'
   * Use the hole size control to remove white pixels within hydrides.
 * Click OK on the bottom right when you are done with one image (see example of image binarization below).
 * Repeat until you hve binarized all images.
-* Record the active time. (Please enter the time in minutes in __template_time.xlsx__.)
+* Record the active time. (Please enter the time in minutes in __RHCP_template_time.xlsx__.)
 * *The MATLAB code will then perform the measurements on its own. However, the RHCP calculations can take a long time (several hours for all images). If you want, you can stop the algorithm and I can perform the MATLAB calculations from your binarized images. If you decide to perform the analysis (Thank you!), you might want to make sure your computer will not go in screen saving mode by changing your settings. On Mac, you can also type the 'caffeinate' command in the terminal*
 * __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to binarize the images__.
 
@@ -167,4 +167,4 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 Once you are done, please send the following files to pjs5523@psu.edu:
 * The files from the result folder created by MATLAB. It should include the binarized images, the binary parameters saved in a .csv file, and the results from the genetic algorithm if you let the MATLAB code run. 
 * One .csv file for each image with the path position.
-* The filled template_time.xlsx file
+* The filled RHCP_template_time.xlsx file
