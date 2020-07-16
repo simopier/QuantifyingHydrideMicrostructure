@@ -36,8 +36,8 @@ You can download the MATLAB code for the Radial Hydride Fraction in __RHF_Matlab
 * You can download the folder containing the Validation images for RHF validation [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHF_Validation_Microstructures).
 * Save the folder in the same folder where you saved the RHF MATLAB code folder (*do not save the image folder in the code folder itself, you should have two separate folders next to each other.*). 
 
-## 3 - Download template_time.xlsx
-You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/template_time.xlsx).
+## 3 - Download RHF_template_time.xlsx
+You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/RHF_template_time.xlsx).
 In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer taking measurements, saving them, etc. Total time corresponds to the active time plus the time the computer took to perform analysis. When using MATLAB, the total time should be a little more than the active time since the MATLAB code will perform the analysis. It should be around one or two minutes longer. Please enter the times in minutes.
 
 ## 4 - Open MATLAB
@@ -90,4 +90,4 @@ RHF_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,Inf,
 ## 7 - Send measurements
 Once you are done, please send the following files to pjs5523@psu.edu:
 * The files from the result folder. It should include the binarized images, the binary parameters saved in a .csv file, and a .csv file with the RHF values. 
-* The filled template_time.xlsx file
+* The filled RHF_template_time.xlsx file
