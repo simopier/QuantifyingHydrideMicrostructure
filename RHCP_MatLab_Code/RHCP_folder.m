@@ -83,7 +83,7 @@ for i=1:length(number_vect)
 end
 
 %%%%%% Sort results_mat so that the list of image numbers is sorted %%%%%%%
-results_mat=AutoSort(results_mat);
+results_mat=sortrows(results_mat,1);
 
 %%%%%%%%% Save the results in a .csv file in resultsFolderName %%%%%%%%%%%%
 

@@ -33,7 +33,7 @@ function [ ] = plotPaths(nodes, plotFrequency, filename, codeFolderName, results
 % None, but this fonction plots the current paths on the micrographs and
 % saves the figure.
 
-%%%%%%%%%%%%% Plot and save the paths on the microsgraph %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Plot and save the paths on the micrographs %%%%%%%%%%%%%%%%%%
 if (mod(figureNumber,plotFrequency)==1) % only plots every plotFrequency steps
     % Open the figure being studied
     cd ../

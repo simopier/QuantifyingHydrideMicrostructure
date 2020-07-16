@@ -218,11 +218,11 @@ for R = 1:numRun %Loop for the full searching algorithm
             plot(path(:,1),path(:,2),'-','LineWidth',3);
         end
 
-        % Plot the frame
-        plot([1 size(path(:,2),1)+90],[1 1],'k-','LineWidth',1)
-        plot([1 size(path(:,2),1)-1+90],[size(path(:,2),1) size(path(:,2),1)],'k-','LineWidth',1)
-        plot([1 1],[1 size(path(:,2),1)],'k-','LineWidth',1)
-        plot([size(path(:,2),1)-1+88 size(path(:,2),1)-1+88],[1 size(path(:,2),1)],'k-','LineWidth',1)
+        % Plot the frame (verification)
+%         plot([1 size(path(:,2),1)+90],[1 1],'k-','LineWidth',1)
+%         plot([1 size(path(:,2),1)-1+90],[size(path(:,2),1) size(path(:,2),1)],'k-','LineWidth',1)
+%         plot([1 1],[1 size(path(:,2),1)],'k-','LineWidth',1)
+%         plot([size(path(:,2),1)-1+88 size(path(:,2),1)-1+88],[1 size(path(:,2),1)],'k-','LineWidth',1)
         % Save figure
         opts.width      = 20;
         opts.height     = 20;
