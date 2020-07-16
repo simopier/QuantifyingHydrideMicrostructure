@@ -50,8 +50,8 @@ color1 = [1 133 113]/255;
 color1Fill = [128 205 193]/255;
 color2 = [166 97 26]/255;
 color2Fill = [223 194 125]/255;
-opts.width      = 20;
-opts.height     = 14;
+opts.width      = 13;
+opts.height     = 13;
 opts.fontType   = 'Latex';
 
 figRHF = figure;
@@ -83,9 +83,6 @@ set([legend],'fontsize',18,'location', 'NorthWest')
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Save figure %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-opts.width      = 20;
-opts.height     = 14;
-opts.fontType   = 'Latex';
 % scaling
 fig.Units               = 'centimeters';
 fig.Position(3)         = opts.width;
