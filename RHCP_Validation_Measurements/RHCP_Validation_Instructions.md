@@ -142,17 +142,23 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 * Then select the image from computer. *Make sure you open the __jpeg__ binarized image from the __result folder__ created by MATLAB.*
 * *At this point you should see another ImageJ tab open with the binary image*.
 
-## 12 - Perform measurements / Draw lines on ImageJ
+## 12 - Perform measurements / Draw a vertical path on ImageJ
 
 * If needed, to zoom in and out of certain regions of the image, select the magnifying glass tool on ImageJ main tab, and press the '+' and '-' keys. 
 * Select the __Straight__ box on the ImageJ main tab (fifth one to the right) to be able to draw lines on the microstructure.
 * Make sure you are drawing __segmented__ lines by right clicking on the line box and selecting __Segmented line__.
-* Draw a path from __top__ to __bottom__ on the microstructure following what you consider to be the best path along the hydrides. Make sure the path is as direct as possible from top to bottom, using hydrides as much as possible to progress.
+* Draw a path from __top__ to __bottom__ on the microstructure following what you consider to be the best path along the hydrides. Make sure the path is as direct as possible from top to bottom, using hydrides as much as possible to progress. (See example below)
   * To do so, click on the top of the image where you want to place your first point. 
   * The keep going down and click where you want the path to go. Note that ImageJ will draw traight lines between clicked positions to create the path. Make sure you always go from top to bottom.
   * Once you have reached the bottom of the microstructure, click back on the top point to finish drawing. 
   * If you want to change the line you just drew, you can drag the three little squares on the line to change their position.
 * When you are satisfy with your path, press the 't' key on your keyboard to save your line.
+
+Here is an example of a microstructure and an appropriate path:
+| Binarized Microstructure      | Appropriate path      |
+|------------|-------------|
+| <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Microstructure_example_RHCP.jpeg" width="250"> | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Microstructure_example_RHCP_Path.png" width="250"> |
+
 
 ## 13 - Save measurements
 * To obtain the position of your clicks, you can either:
