@@ -45,7 +45,7 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 * Once you are done approximating the hydrides with the lines you can save your measurements
 * On the __ROI manager__ tab, select __Measure__.
 * *A table should come up with the data*
-* Select __Files > Save As...__ to save this file in the results folder as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv).
+* Select __Files > Save As...__ to save this file in the results folder (RHF_Validation_Results) as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv).
 * Repeat this for all images. (Please remember to pause the timer if/when you take breaks)
 
 ## 8 - Send measurements
