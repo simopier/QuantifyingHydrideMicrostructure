@@ -104,7 +104,7 @@ RHCP_main('RHCP_Matlab_code','RHCP_Validation_Microstructures',100,255,60,10,0,'
 * Click OK on the bottom right when you are done with one image (see example of image binarization below).
 * Repeat until you hve binarized all images.
 * Record the active time. (Please enter the time in minutes in __template_time.xlsx__.)
-* *The MATLAB code will then perform the measurements on its own. However, the RHCP calculations can take a long time (several hours for all images). If you want, you can stop the algorithm and I can perform the MATLAB calculations from your binarized images.*
+* *The MATLAB code will then perform the measurements on its own. However, the RHCP calculations can take a long time (several hours for all images). If you want, you can stop the algorithm and I can perform the MATLAB calculations from your binarized images. If you decide to perform the analysis (Thank you!), you might want to make sure your computer will not go in screen saving mode by changing your settings. On Mac, you can also type the 'caffeinate' command in the terminal*
 * __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to binarize the images__.
 
 | Microstructure      | Binarized microstructure      |
