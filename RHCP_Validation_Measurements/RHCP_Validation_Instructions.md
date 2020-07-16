@@ -157,7 +157,7 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 Here is an example of a microstructure and an appropriate path:
 | Binarized Microstructure      | Appropriate path      |
 |------------|-------------|
-| <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Microstructure_example_RHCP.jpeg" width="250"> | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Microstructure_example_RHCP_Path.png" width="250"> |
+| <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Microstructure_example_RHCP.jpeg" width="250"> | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_Validation_Measurements/Microstructure_example_RHCP_path.png" width="250"> |
 
 
 ## 13 - Save measurements
