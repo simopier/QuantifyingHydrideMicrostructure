@@ -37,13 +37,13 @@ function [ binaryImage,lowThreshold, highThreshold, SpotSize, HoleSize, removeBo
 % Check that user has the Image Processing Toolbox installed.
 hasIPT = license('test', 'image_toolbox');
 if ~hasIPT
-	% User does not have the toolbox installed.
-	message = sprintf('Sorry, but you do not seem to have the Image Processing Toolbox.\nDo you want to try to continue anyway?');
-	reply = questdlg(message, 'Toolbox missing', 'Yes', 'No', 'Yes');
-	if strcmpi(reply, 'No')
-		% User said No, so exit.
-		return;
-	end
+    % User does not have the toolbox installed.
+    message = sprintf('Sorry, but you do not seem to have the Image Processing Toolbox.\nDo you want to try to continue anyway (Not recommended, as this will not work)? \n To install the toolbox, if you have a recent version, on the main MATLAB window, go to __Home>Adds-Ons>Get Adds-Ons__ and find the Image processing toolbox. Otherwise, visit: https://www.mathworks.com/matlabcentral/answers/101885-how-do-i-install-additional-toolboxes-into-an-existing-installation-of-matlab');
+    reply = questdlg(message, 'Toolbox missing', 'Yes', 'No', 'Yes');
+    if strcmpi(reply, 'No')
+        % User said No, so exit.
+        return;
+    end
 end
 
 % Open the image
