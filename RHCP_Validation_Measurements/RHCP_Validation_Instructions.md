@@ -157,14 +157,14 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 ## 13 - Save measurements
 * To obtain the position of your clicks, you can either:
   * Activate the macro tab by clicking on it, and then go to __Macros > Run Macro__.
-  * Or go to __Plugins > Macros > Run ...__ and select the file named __Get_line_positions.txt__ that we save at step 9. 
+  * Or go to __Plugins > Macros > Run ...__ and select the file named __Get_line_positions.txt__ that we saved at step 9. 
 * * This will create a tab with the x and y positions of the line you just drew. If you did not go from top to bottom when drawing the line, it will give you an error message. You will need to plot a new line.*
-* Select __Files > Save As...__ to save this file in the results folder as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv).
+* Select __Files > Save As...__ to save this file in the results folder (RHCP_Validation_Results) as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv).
 * Repeat this for all images. (Please remember to pause the timer if/when you take breaks).
 * __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to take measurements with imageJ__.
 
 ## 14 - Send measurements
 Once you are done, please send the following files to pjs5523@psu.edu:
 * The files from the result folder created by MATLAB. It should include the binarized images, the binary parameters saved in a .csv file, and the results from the genetic algorithm if you let the MATLAB code run. 
-* One .csv file for each image with the path position.
+* One .csv file for each image with the path position. (which should also be in the result folder RHCP_Validation_Results)
 * The filled RHCP_template_time.xlsx file
