@@ -48,7 +48,7 @@ function [ ] = RHCP_folder(codeFolderName, imageFolderName, resultsFolderName, r
 
 % Outputs:
 % None, but it saves in the result folder a .csv file containing the name 
-% and RHF values of all microstructures.
+% and RHCP values of all microstructures.
 
 %%%%%%%%%%%%%%%%%%%%%%% List all the images %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Takes the names of the images in the folder named imageFolderName and 

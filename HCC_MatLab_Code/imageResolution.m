@@ -16,7 +16,7 @@ function [resolution] = imageResolution( codeFolderName, imageFolderName, resolu
 
 % Description:
 % imageResolution defines the resolution of the images. This function is
-% called by RHCP_main to determine the image resolution.
+% called by HCC_main to determine the image resolution.
 
 % Inputs:
 % - codeFolderName: The name of the folder in which the RHF code is stored.

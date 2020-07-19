@@ -17,7 +17,7 @@ function [RHCP] = RHCP_file(codeFolderName,imageFolderName, filename, resultsFol
 % Description:
 % This function is called by RHCP_folder and measure the RHCP of the
 % microstructure given as input. It opens the given microstructure and
-% performs the analysis usin gthe genetic algorithm. It frequently plots
+% performs the analysis using the genetic algorithm. It frequently plots
 % and saves the current paths, the histogram of RHCP values, as well as the
 % convergence of the values.
 % Once the analysis is over, it saves in the result folder a .csv file and
@@ -51,7 +51,7 @@ function [RHCP] = RHCP_file(codeFolderName,imageFolderName, filename, resultsFol
 % - y_step: For the genetic algorithm. Length of the paths section used to determine its orientation. This is not used if desiredAngle = nan. Otherwise, it is used to accurately determine the paths orientation and apply the angle penalty. We recommend using 10.
 
 % Outputs:
-% This function returns the RHCP value for the input microstructure. It
+% This function returns the HCC value for the input microstructure. It
 % also plots and save the best path and saves its positions in a .csv file.
 
 %%%%%%%%%%%%%%%%%%%%% Find and open the images %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,7 +72,7 @@ if resolution==0
     cd(codeFolderName)
 end
 
-%%%%%%%%%%%%%%%%% Algorithm which calls specific RHCP code %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Initialization
 length_binaryImage = size(binaryImage,1);

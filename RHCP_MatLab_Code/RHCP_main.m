@@ -20,7 +20,7 @@ function [ ] = RHCP_main(codeFolderName,imageFolderName,startingLowThreshold,sta
 % analysis.
 
 % Inputs:
-% - codeFolderName: The name of the folder in which the RHF code is stored.
+% - codeFolderName: The name of the folder in which the RHCP code is stored.
 % - imageFolderName: The name of the folder in which images are stored.
 % - startingLowThreshold: The initial value for low threshold value ≥0 for the binarization process. To be adjusted in GUI. We recommend starting with 0.
 % - startingHighThreshold: The initial value for high threshold value >(startingLowThreshold) for the binarization process. To be adjusted in GUI. We recommend starting with 255.
@@ -52,7 +52,7 @@ function [ ] = RHCP_main(codeFolderName,imageFolderName,startingLowThreshold,sta
 % Outputs:
 % None, but at the end, the solfware will have created the result folder
 % with the binarized images, the saved binarization parameters, as well as
-% the measured Radial Hydride Fraction values.
+% the measured Radial Hydride Continuous Path values.
 
 % Example for a call:
 % RHCP_main('RHCP_MatLab_Code','RHCP_Validation_Microstructures',100,255,60,10,0,'RHCP_Validation_Results', 0.01, 1e-4, 50, 0.05, 1, 20, 20, 1000, 1, 50001, 1, 50, 1, 1, 5, 0.6, 1000, nan, 13, 10)

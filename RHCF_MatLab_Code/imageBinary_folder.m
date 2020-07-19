@@ -15,7 +15,7 @@ function [ ] = imageBinary_folder( codeFolderName, ImageFolderName, startingLowT
 %-------------------------------------------------------------------------%
 
 % Description:
-% This function is called by RHCP_main.m and call imageBinary.m to binarize
+% This function is called by RHCF_main.m and call imageBinary.m to binarize
 % the microstructures in ImageFolderName. Binarizing the image is the first
 % and one of the most important steps of the algorithm. The aim is to keep 
 % only the hydrides in the image. The GUI helps the user define the 
