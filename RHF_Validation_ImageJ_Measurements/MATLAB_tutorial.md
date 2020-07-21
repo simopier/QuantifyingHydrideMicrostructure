@@ -38,7 +38,7 @@ You can download the MATLAB code for the Radial Hydride Fraction in __RHF_Matlab
 
 ## 3 - Download RHF_template_time.xlsx
 You can download the template to enter the time it took to perform the measurements [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/RHF_template_time.xlsx).
-In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer taking measurements, saving them, etc. Total time corresponds to the active time plus the time the computer took to perform analysis. When using MATLAB, the total time should be a little more than the active time since the MATLAB code will perform the analysis. It should be around one or two minutes longer. Please enter the times in minutes.
+In this file, you can enter how much time it took you to perform the measurements. Active time corresponds to the amount of time you spent in front of the computer using MATLAB to binarize the images. Total time corresponds to the active time plus the time the computer took to perform analysis. When using MATLAB, the total time should be a little more than the active time since the MATLAB code will perform the analysis. It should be around one or two minutes longer. Please enter the times in minutes.
 
 ## 4 - Open MATLAB
 * Open the file called __RHF_main.m__ and make sure that MATLAB is in the code folder.
