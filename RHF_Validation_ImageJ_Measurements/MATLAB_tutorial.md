@@ -79,7 +79,7 @@ RHF_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,Inf,
   * Use the spot size control to remove the dust and other features from the micrographs.
   * Use the hole size control to remove white pixels within hydrides.
 * Click OK on the bottom right when you are done with the image (See below for an example of binarization).
-* Repeat until you hve binarized all images.
+* Repeat until you have binarized all images.
 * Record the active time. (Please enter the time in minutes.)
 * *The MATLAB code will then perform the measurements on its own. Which should take one to two minutes*
 
