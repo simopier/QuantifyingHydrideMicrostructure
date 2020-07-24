@@ -43,7 +43,7 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 
 | Example of a few lines drawn on a microstructure with ImageJ           |
 |--------------------------|
-| <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/RHF_Example_lines.png" width="150"> |
+| <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_ImageJ_Measurements/RHF_Example_lines.png" width="300"> |
 
 
 ## 7 - Save measurements
