@@ -41,6 +41,11 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 
 *Always make sure you press the 't' key to save the line you drew, otherwise it won't be saved. If you save a line, it will stay on the image as you draw new ones, otherwise it will disapear.* 
 
+| Example of a few lines drawn on a microstructure with ImageJ           |
+|--------------------------|
+| <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_Validation_Measurements/RHF_Example_lines.png" width="150"> |
+
+
 ## 7 - Save measurements
 * Once you are done approximating the hydrides with the lines you can save your measurements
 * On the __ROI manager__ tab, select __Measure__.
