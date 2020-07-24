@@ -146,13 +146,14 @@ Make sure to start a timer to keep track of how much time it takes you to perfor
 
 * If needed, to zoom in and out of certain regions of the image, select the magnifying glass tool on ImageJ main tab, and press the '+' and '-' keys. 
 * Select the __Straight__ box on the ImageJ main tab (fifth one to the right) to be able to draw lines on the microstructure.
-* Make sure you are drawing __segmented__ lines by right clicking on the line box and selecting __Segmented line__.
-* Draw a path from __top__ to __bottom__ on the microstructure following what you consider to be the best path along the hydrides. Make sure the path is as direct as possible from top to bottom, using hydrides as much as possible to progress. (See example below)
+* Make sure you are drawing a __segmented__ line by right clicking on the line box and selecting __Segmented line__.
+* Draw one path from __top__ to __bottom__ on the microstructure following what you consider to be the best path along the hydrides. Make sure the path is as direct as possible from top to bottom, using hydrides as much as possible to progress. (See example below)
   * To do so, click on the top of the image where you want to place your first point. 
-  * The keep going down and click where you want the path to go. Note that ImageJ will draw traight lines between clicked positions to create the path. Make sure you always go from top to bottom.
+  * The keep going down and click where you want the path to go. Note that ImageJ will draw straight lines between clicked positions to create the path. Make sure you always go from top to bottom.
   * Once you have reached the bottom of the microstructure, click back on the top point to finish drawing. 
   * If you want to change the line you just drew, you can drag the three little squares on the line to change their position.
 * When you are satisfy with your path, press the 't' key on your keyboard to save your line.
+* Only one path per microstructure is expected for this measurement, just intuitively plot the best.
 
 Here is an example of a microstructure and an appropriate path:
 | Binarized Microstructure      | Appropriate path      |
@@ -164,7 +165,7 @@ Here is an example of a microstructure and an appropriate path:
 * To obtain the position of your clicks, you can either:
   * Activate the macro tab by clicking on it, and then go to __Macros > Run Macro__.
   * Or go to __Plugins > Macros > Run ...__ and select the file named __Get_line_positions.txt__ that we saved at step 9. 
-* * This will create a tab with the x and y positions of the line you just drew. If you did not go from top to bottom when drawing the line, it will give you an error message. You will need to plot a new line.*
+* * This will create a tab with the x and y positions of the line you just drew. If you did not go from top to bottom when drawing the line, it will give you an error message. You will need to plot a new line or move around the problematic points on your line.*
 * Select __Files > Save As...__ to save this file in the results folder (RHCP_Validation_Results) as a .csv file with the name: __ImageNumber.csv__ (example: 14.csv).
 * Repeat this for all images. (Please remember to pause the timer if/when you take breaks).
 * __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to take measurements with imageJ__.
