@@ -407,16 +407,27 @@ You should find:
   
 ## 12. Instructions on how to use the GUI to binarize images.
 
-* Modify the parameters until you are satisfied with the microstructure on the right. The goal is to keep only the hydrides on the image. 
-  * If the background light is non-uniform, you can compensate for it. Select the desired option and then enter the desired value. If needed, 10 would be a good place to start. However, you shouldn't need it for the validation images. 
-  * Use the threshold values to binarize the image. The max value typically stays at the maximum value on the scale. The minimum value depends on the image. You can use the histogram below on the GUI to see where pixel intensity stands.
-  * Use the spot size control to remove the dust and other features from the micrographs.
-  * Use the hole size control to remove white pixels within hydrides.
-* Click OK on the bottom right when you are done with one image (see example of image binarization below).
-* Repeat until you hve binarized all images.
-* Record the active time. (Please enter the time in minutes in __RHCP_template_time.xlsx__.)
-* *The MATLAB code will then perform the measurements on its own. However, the RHCP calculations can take a long time (several hours for all images). If you want, you can stop the algorithm and I can perform the MATLAB calculations from your binarized images. If you decide to perform the analysis (Thank you!), you might want to make sure your computer will not go in screen saving mode by changing your settings. On Mac, you can also type the 'caffeinate' command in the terminal*
-* __When you are done binarizing all images, please do not forget to stop the time and save the time it took you to binarize the images__.
+When using one of these MATLAB algorithm, you will be prompt to use a GUI to binarize the microstructures being analyzed. Please note that if the microstructure have already been binarized and that the binarization parameters are saved in the results folder, then the MATLAB code will use these parameters instead of asking you to binarize them again. If you want to binarize them again, input a different result folder name. The GUI will appear as shown in the following image:
+
+| GUI        | 
+|------------|
+<img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/MATLAB_CODE_GUI.png" width="1000"> |
+
+* 1 shows the initial microstructure being analyzed.
+* 2 shows the binarized microstructure. Parts of the microstructure are kept (shown in black), and the rest of the microstructure is filtered out (shown in white). Inthis image, holes and small particules of the desired size have been filled and removed, respectively (See '4' to see how to change the desired sizes of holes and particles).
+* 3 shows the final binarized microstructure, i.e. the one that will be analyzed by the algorithm. The hydrides have been skeletonized. 
+* 4 allows you to determine the parameters for the binarization process. Each change made on 4 affects images 2 and 3.
+	* Min Threshold corresponds to the value of the lower threshold. Decreasing it removes the lighter pixels. 
+	* Max threshold corresponds to the value of the higher threshold. Decreasing it includes lighter pixels. It it usually set to the maximum value
+	* Size spot removal corresponds to the size in pixels of the particles that you wish to filter out. Increasing this value will filter out larger particules. 
+	* Size holes removal corresponds to the size in pixels of the holes that you wish to fill out. Holes are groups of white pixels completely surrounded by black pixels. Increasing this value will fill out larger holes.
+	* You can filter out, or not, the groups of pixels that are in contact with the border of the image. 
+* 5 allows you to compensate, or not, for a non-uniform background lighting. The value for the non-uniform ighting compensation can be changed from 0 to a large number if necessary. It's effect can change depending on the image, do not be afraid to play with it and find a value that provides the best results. I recommend that you first try to obtain the best binary picture possible using commands described in 4 before trying to compensate for non-uniform background lighting. 4 and 5 will then probably have to be used together to find the optimum values.
+* 6 shows the histogram of the grayscale pixels. It can be used to set up the Min and Max values for the threaholds in 4.
+* 7 shows the number of hydrides counted by the algorithm.
+* 8 is the OK button, that you can press once you are satisfied with the parameters you chose and the microstructure on the right, in 3. Once pressed, the algorithm will save these parameters and move on the the next image, or to the analysis if you went through every images.
+
+The following figure shows an example of a microstructure and it's binarized version.
 
 | Microstructure      | Binarized microstructure      |
 |------------|-------------|
