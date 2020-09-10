@@ -60,7 +60,7 @@ To launch the code, you need to call the function __RHCP_main__ with the appropr
 RHCP_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName, PerCut, tolConvergence, numPaths, Mutation, primary_nodes_dist, disp_num, disp_size, annealingTime, numRun, CPMax, num_smoothing, fracParamZr, fracParamZrH, valueZrH, num_bands, bridge_criteria_ratio, plotFrequency, desiredAngle, W, y_step)
 ```
 with:
-- codeFolderName: The name of the folder in which the RHF code is stored.
+- codeFolderName: The name of the folder in which the RHCP code is stored.
 - imageFolderName: The name of the folder in which images are stored.
 - startingLowThreshold: The initial value for low threshold value ≥0 for the binarization process. To be adjusted in GUI. We recommend starting with 0.
 - startingHighThreshold: The initial value for high threshold value >(startingLowThreshold) for the binarization process. To be adjusted in GUI. We recommend starting with 255.
