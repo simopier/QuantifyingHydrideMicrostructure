@@ -1,4 +1,4 @@
-function [HCC] =  HCC_file(codeFolderName,imageFolderName, filename, resultsFolderName, resolution, Min_Segment_Length)
+function [HCC] =  HCC_file(codeFolderName,imageFolderName, filename, resultsFolderName, resolution, Min_Segment_Length, band_width)
 %-------------------------------------------------------------------------%
 %                                                                         %
 %       Script developed by Pierre-Clement A Simon and Cailon Frank       %
@@ -30,7 +30,8 @@ function [HCC] =  HCC_file(codeFolderName,imageFolderName, filename, resultsFold
 % - filename: Name of the microstructure file.
 % - resultsFolderName: The name of the folder in which the results will be stored. The folder is created if it does not already exist.
 % - resolution: The image resolution in dpi. Enter 0 if you want to use the resolution in the metadata of the images.
-% - Min_Segment_Length: Minimum length of the hydride projection that will be counted in HCC
+% - Min_Segment_Length: Minimum length of the hydride projection that will be counted in HCC.
+% - band_width: is the width of the band used to derive HCC. The unit depends on the unit of the variable 'resolution'. d = 0.11 mm. . Use Inf to use the entire image.
 
 % Outputs:
 % This function returns the HCC value for the input microstructure.
@@ -43,15 +44,33 @@ cd ../
 cd(codeFolderName)
 
 %%%%%%%%%%%%%%%%%% Determine the image resolution %%%%%%%%%%%%%%%%%%%%%%%%%
-% resolution is actually unused in this code, but kept for potential future changes
+
 if resolution==0
     cd ../
     cd(imageFolderName)
     info = imfinfo(filename);
-    resolution=info.XResolution; 
+    resolution=info.XResolution;
     cd ../
     cd(codeFolderName)
 end
+
+%%%%%%%%%%%%%%% Selects the center band of the image %%%%%%%%%%%%%%%%%%%%%%
+
+% Only select the center band if the desired band width is smaller than
+% image size
+if band_width*resolution < size(binaryImage,2)
+    % select the center band
+    band_start = round(size(binaryImage,2)/2-band_width*resolution/2);
+    band_end = round(size(binaryImage,2)/2+band_width*resolution/2);
+    % Warning message if band_width is too small for the image to possess
+    % more than 10 pixels
+    if band_end-band_start < 10
+        disp('Warning: The band_width is probably too small')
+        pause(10)
+    end
+    binaryImage = binaryImage(:,band_start:band_end);
+end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

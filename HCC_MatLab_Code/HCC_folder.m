@@ -1,4 +1,4 @@
-function [ ] = HCC_folder(codeFolderName, imageFolderName, resultsFolderName, resolution, Min_Segment_Length)
+function [ ] = HCC_folder(codeFolderName, imageFolderName, resultsFolderName, resolution, Min_Segment_Length, band_width)
 %-------------------------------------------------------------------------%
 %                                                                         %
 %       Script developed by Pierre-Clement A Simon and Cailon Frank       %
@@ -30,7 +30,8 @@ function [ ] = HCC_folder(codeFolderName, imageFolderName, resultsFolderName, re
 % - imageFolderName: The name of the folder in which images are stored.
 % - resultsFolderName: The name of the folder in which the results will be stored. The folder is created if it does not already exist.
 % - resolution: The image resolution in dpi. Enter 0 if you want to use the resolution in the metadata of the images.
-% - Min_Segment_Length: Minimum length of the hydride projection that will be counted in HCC
+% - Min_Segment_Length: Minimum length of the hydride projection that will be counted in HCC.
+% - band_width: is the width of the band used to derive HCC. The unit depends on the unit of the variable 'resolution'. d = 0.11 mm. Use Inf to use the entire image.
 
 % Outputs:
 % None, but it saves in the result folder a .csv file containing the name 
@@ -63,7 +64,7 @@ results_mat=zeros(length(number_vect),2);
 for i=1:length(number_vect)
     if strlength(names_vect)>0
         % Perform the analysis of the microstructure 
-        [HCC] = HCC_file(codeFolderName,imageFolderName,char(names_vect(i)), resultsFolderName, resolution, Min_Segment_Length);
+        [HCC] = HCC_file(codeFolderName,imageFolderName,char(names_vect(i)), resultsFolderName, resolution, Min_Segment_Length, band_width);
         % Save the results for the final csv file
         results_mat(i,:)=[number_vect(i),HCC]; 
     end
