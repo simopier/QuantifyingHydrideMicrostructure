@@ -1,4 +1,4 @@
-function [ ] = RHCF_folder(codeFolderName, imageFolderName, resultsFolderName, resolution )
+function [ ] = RHCF_folder(codeFolderName, imageFolderName, resultsFolderName, resolution, band_width )
 %-------------------------------------------------------------------------%
 %                                                                         %
 %       Script developed by Pierre-Clement A Simon and Cailon Frank       %
@@ -64,7 +64,7 @@ for i=1:length(number_vect)
     disp(i)
     if strlength(names_vect)>0
         % Perform the analysis of the microstructure 
-        [RHCF] = RHCF_file(codeFolderName, imageFolderName, char(names_vect(i)), resultsFolderName, resolution);
+        [RHCF] = RHCF_file(codeFolderName, imageFolderName, char(names_vect(i)), resultsFolderName, resolution, band_width);
         % Save the results for the final csv file
         results_mat(i,:)=[number_vect(i),RHCF]; 
     end

@@ -1,4 +1,4 @@
-function [RHCF] = RHCF_file(codeFolderName,imageFolderName, filename, resultsFolderName, resolution)
+function [RHCF] = RHCF_file(codeFolderName,imageFolderName, filename, resultsFolderName, resolution, band_width)
 %-------------------------------------------------------------------------%
 %                                                                         %
 %       Script developed by Pierre-Clement A Simon and Cailon Frank       %
@@ -44,14 +44,31 @@ cd ../
 cd(codeFolderName)
 
 %%%%%%%%%%%%%%%%%% Determine the image resolution %%%%%%%%%%%%%%%%%%%%%%%%%
-% resolution is actually unused in this code, but kept for potential future changes
+
 if resolution==0
     cd ../
     cd(imageFolderName)
     info = imfinfo(filename);
-    resolution=info.XResolution; 
+    resolution=info.XResolution;
     cd ../
     cd(codeFolderName)
+end
+
+%%%%%%%%%%%%%%% Selects the center band of the image %%%%%%%%%%%%%%%%%%%%%%
+
+% Only select the center band if the desired band width is smaller than
+% image size
+if band_width*resolution < size(binaryImage,2)
+    % select the center band
+    band_start = round(size(binaryImage,2)/2-band_width*resolution/2);
+    band_end = round(size(binaryImage,2)/2+band_width*resolution/2);
+    % Warning message if band_width is too small for the image to possess
+    % more than 10 pixels
+    if band_end-band_start < 10
+        disp('Warning: The band_width is probably too small')
+        pause(10)
+    end
+    binaryImage = binaryImage(:,band_start:band_end);
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

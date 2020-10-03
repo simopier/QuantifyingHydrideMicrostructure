@@ -1,4 +1,4 @@
-function [ ] = RHCF_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName)
+function [ ] = RHCF_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName, band_width)
 %-------------------------------------------------------------------------%
 %                                                                         %
 %       Script developed by Pierre-Clement A Simon and Cailon Frank       %
@@ -43,7 +43,7 @@ function [ ] = RHCF_main(codeFolderName,imageFolderName,startingLowThreshold,sta
 % the measured Radial Hydride Continuity Fraction values.
 
 % Example for a call:
-% RHCF_main('RHCF_MatLab_Code','RHCF_Validation_Microstructures',100,255,60,10,0,'RHCF_Validation_Results')
+% RHCF_main('RHCF_MatLab_Code','RHCF_Validation_Microstructures',100,255,60,10,0,'RHCF_Validation_Results',100)
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Initialization %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -63,9 +63,9 @@ resolution = imageResolution( codeFolderName, imageFolderName, resolution );
 
 imageBinary_folder( codeFolderName, imageFolderName, startingLowThreshold, startingHighThreshold, SpotSize, HoleSize, resultsFolderName );
 
-%%%%%%%%%%%%%%%%%%% Analyse the binary images, *start of connectivity code* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% Analyse the binary images %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-RHCF_folder( codeFolderName, imageFolderName, resultsFolderName, resolution);
+RHCF_folder( codeFolderName, imageFolderName, resultsFolderName, resolution, band_width);
 
 
 end
