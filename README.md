@@ -297,7 +297,7 @@ Open the file called __HCC_main.m__ and make sure that MATLAB is open in the cod
 
 To launch the code, you need to call the function __HCC_main__ with the appropriate inputs:
 ```
-HCC_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName, Min_Segment_Length)
+HCC_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName, Min_Segment_Length, band_width)
 ```
 with:
 - codeFolderName: The name of the folder in which the HCC code is stored.
@@ -309,11 +309,12 @@ with:
 - resolution: The image resolution  in dpi. Enter 0 if you want to use the resolution in the metadata of the images.
 - resultsFolderName: The name of the folder in which the results will be stored. The folder is created if it does already exist.
 - Min_Segment_Length: Minimum length of the hydride projection that will be counted in HCC.
+- band_width: is the width of the band used to derive HCC. The unit depends on the unit of the variable 'resolution'. d = 0.11 mm. Use Inf to use the entire image.
 
 An example of a call is:
 
 ```
-HCC_main('HCC_Matlab_code','RHCP_Verification_Microstructures',100,255,60,10,0,'HCC_Validation_Results', 5)
+HCC_main('HCC_Matlab_code','RHCP_Verification_Microstructures',100,255,60,10,0,'HCC_Validation_Results', 5,100)
 ```
 #### 4. Binarize the microstructures
 *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
@@ -370,7 +371,7 @@ Open the file called __RHCF_main.m__ and make sure that MATLAB is open in the co
 
 To launch the code, you need to call the function __RHCF_main__ with the appropriate inputs:
 ```
-RHCF_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName)
+RHCF_main(codeFolderName,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderName, band_width)
 ```
 with:
 - codeFolderName: The name of the folder in which the RHCF code is stored.
@@ -381,11 +382,12 @@ with:
 - HoleSize: The binarization parameter to fill out holes smaller than HoleSize in pixels. To be adjusted in GUI. We recommend starting with 0.
 - resolution: The image resolution  in dpi. Enter 0 if you want to use the resolution in the metadata of the images.
 - resultsFolderName: The name of the folder in which the results will be stored. The folder is created if it does already exist.
+- band_width: is the width of the band used to derive RHCF. The unit depends on the unit of the variable 'resolution'. d = 0.150 mm. Use Inf to use the entire image.
 
 An example of a call is:
 
 ```
-RHCF_main('RHCF_Matlab_code','RHCP_Verification_Microstructures',100,255,60,10,0,'RHCF_Validation_Results')
+RHCF_main('RHCF_Matlab_code','RHCP_Verification_Microstructures',100,255,60,10,0,'RHCF_Validation_Results',150)
 ```
 #### 4. Binarize the microstructures
 *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
