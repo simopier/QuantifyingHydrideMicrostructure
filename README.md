@@ -19,9 +19,9 @@ This document contains important information on the content of the QuantifyingHy
 
 ## 1. How to cite this work.
 
-When using this work, please appropriately cite the publication available [here]().
+When using this work, please appropriately cite the publication available [here](https://www.sciencedirect.com/science/article/pii/S0022311521000404).
 
-P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks, A.T. Motta, Quantifying zirconium embrittlement due to hydride microstructure using image analysis. ----
+P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks, A.T. Motta, Quantifying zirconium embrittlement due to hydride microstructure using image analysis. *Journal of Nuclear Materials* 547 (2021) 152817.
 
 ## 2. Description of the QuantifyingHydrideMicrostructure repository content
 
