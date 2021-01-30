@@ -5,9 +5,11 @@ function [ ] = imageBinary_folder( codeFolderName, ImageFolderName, startingLowT
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -15,12 +17,12 @@ function [ ] = imageBinary_folder( codeFolderName, ImageFolderName, startingLowT
 %-------------------------------------------------------------------------%
 
 % Description:
-% This function is called by RHF_main.m and call imageBinary.m to binarize
+% This function is called by RHF_main.m and calls imageBinary.m to binarize
 % the microstructures in ImageFolderName. Binarizing the image is the first
-% and one of the most important steps of the algorithm. The aim is to keep 
-% only the hydrides in the image. The GUI helps the user define the 
+% and one of the most important steps of the algorithm. The aim is to keep
+% only the hydrides in the image. The GUI helps the user define the
 % binarization parameters.
-% If the binary parameters were already determined and saved in the result 
+% If the binary parameters were already determined and saved in the result
 % folder, then it will use these to binarize the figures again.
 
 
@@ -39,7 +41,7 @@ function [ ] = imageBinary_folder( codeFolderName, ImageFolderName, startingLowT
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% List all the images %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Takes the names of the images in the folder named ImageFolderName and 
+% Takes the names of the images in the folder named ImageFolderName and
 % create a list of their names stored in string and in double.
 % Warning: images names need to contain numbers only
 
@@ -74,4 +76,3 @@ end
 
 
 end
-

@@ -5,9 +5,11 @@ function [RHF] = RHF_file(codeFolderName,imageFolderName, filename, resultsFolde
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -15,10 +17,10 @@ function [RHF] = RHF_file(codeFolderName,imageFolderName, filename, resultsFolde
 %-------------------------------------------------------------------------%
 
 % Description:
-% This function is called by RHF_folder and measure the RHF of the
+% This function is called by RHF_folder and measures the RHF of the
 % microstructure given as input. It opens the given microstructure and
 % performs the analysis.
-% Once the analysis is over, it saves in the result folder a .csv file 
+% Once the analysis is over, it saves in the result folder a .csv file
 % listing all the hydrides and their corresponding RHF.
 
 
@@ -70,14 +72,14 @@ for i=1:numberHydrides
     binaryImage2=binaryImage;
     binaryImage2(:)=0;
     binaryImage2(CC.PixelIdxList{i})=1;
-    
-    % Set up length and RHF vectors for this hydrides 
+
+    % Set up length and RHF vectors for this hydrides
     Hydride_length_hydride_i_vect = [];
     RHF_hydride_i_vect = [];
-    
+
     % Call on total length function to determine the length of the hydride
     Hydride_Length_vect(i)=Total_H_Length(binaryImage2,resolution);
-    
+
 %     disp('RHF_file hydride length')
 %     Hydride_Length_vect(i)
 %     if lengthCutRatio < Inf
@@ -85,27 +87,34 @@ for i=1:numberHydrides
 %     else
 %         lengthCut = Inf;
 %     end
-    
+
     % Determine the number of cuts
     numCuts = floor(Hydride_Length_vect(i)/lengthCut);
-    
-    % Find the two end of the hydride
+
+    % Find the two ends of the hydride
     endPoints = bwmorph(binaryImage2, 'endpoints');
     [endPoints_loc_x, endPoints_loc_y] = find(endPoints);
+    % if the hydride has no end (forms a closed loop), then we remove one point from the hydride and find the new endpoints
+    if size(endPoints_loc_x,1)==0
+        list_points = find(binaryImage2);
+        binaryImage2(list_points(1))=0;
+        endPoints = bwmorph(binaryImage2, 'endpoints');
+        [endPoints_loc_x, endPoints_loc_y] = find(endPoints);
+    end
     endPoint_x_1 = endPoints_loc_x(1);
     endPoint_y_1 = endPoints_loc_y(1);
     endPoint_x_2 = endPoints_loc_x(2);
     endPoint_y_2 = endPoints_loc_y(2);
     pointx_past = endPoint_x_1;
     pointy_past = endPoint_y_1;
-    
+
     % Determine the distance from the current point to every other
     % point of the hydride
     D = bwdistgeodesic(binaryImage2,endPoint_y_1,endPoint_x_1,'quasi-euclidean');
     D(D==Inf) = nan;
     D = D / resolution;
     tol = 2/resolution;
-    
+
     while max(max(D))>0
         % find the point at the desired length of the current point
         [pointx, pointy] = find((D>(lengthCut-tol))&(D<(lengthCut+tol)));
@@ -133,10 +142,10 @@ for i=1:numberHydrides
             D2 = zeros(size(D,1),size(D,2));
             D2((D>0)&(D<=D(pointx,pointy))) = 1;
             binaryImage2_cut = binaryImage2.*D2;
-            
+
             % Derive the length of the cut
             lengthCut_measured = Total_H_Length(binaryImage2_cut,resolution);
-            
+
             % Derive projected lengths
             [pointsi_cut, pointsj_cut] = find(binaryImage2_cut);
             length_proj_c = abs(max(pointsj_cut)-min(pointsj_cut));
@@ -145,27 +154,27 @@ for i=1:numberHydrides
             % Add length of this cut
             Hydride_length_hydride_i_vect = [Hydride_length_hydride_i_vect lengthCut_measured];
         end
-        
+
         % Determine the Radial Hydride Fraction RHF of the hydride
         RHF_hydride_i_vect = [RHF_hydride_i_vect RHFCalculation(length_proj_c,length_proj_r)];
-        
+
         % Set up next step
         pointx_past = pointx;
         pointy_past = pointy;
         D = max(0,D-lengthCut);
-        
+
     end
-    
+
     % Determine the RHF of this hydride
     RHF_vect(i) = sum(Hydride_length_hydride_i_vect.* RHF_hydride_i_vect)/sum(Hydride_length_hydride_i_vect);
-    
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%% Filter out the NaN values %%%%%%%%%%%%%%%%%%%%%%%%
 RHF_vect(isnan(RHF_vect))=0;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Derive global RHF %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Length average the Radial Hydride Fraction of every hydride to get the 
+% Length average the Radial Hydride Fraction of every hydride to get the
 % RHF of the microstructure
 RHF=sum(Hydride_Length_vect.*RHF_vect)/sum(Hydride_Length_vect);
 
@@ -179,7 +188,7 @@ results_mat=[ [1:numberHydrides]' RHF_vect' Hydride_Length_vect'];
 cHeader = {'Hydride number' 'Radial Hydride Fraction' 'Hydride length'}; %header
 textHeader = strjoin(cHeader, ',');
 % write header to file
-fid = fopen(filename_results,'w'); 
+fid = fopen(filename_results,'w');
 fprintf(fid,'%s\n',textHeader);
 fclose(fid);
 % write data in file
