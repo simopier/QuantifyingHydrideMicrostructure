@@ -5,9 +5,11 @@ function [nodes] = ZigZag(nodes,binaryImage,fracParamZr,fracParamZrH,valueZrH,de
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -15,7 +17,7 @@ function [nodes] = ZigZag(nodes,binaryImage,fracParamZr,fracParamZrH,valueZrH,de
 %-------------------------------------------------------------------------%
 
 % Description:
-% ZigZag takes the nodes of paths described by nodes and the binaryImage,
+% ZigZag takes the paths described by nodes and the binaryImage,
 % and removes parts of the paths that go in and out of the ZrH phase.
 
 

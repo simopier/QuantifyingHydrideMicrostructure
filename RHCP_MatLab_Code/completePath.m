@@ -49,7 +49,7 @@ if isnan(desiredAngle) % if there is no desired angle, then the child is simply 
     
 else
     % if there is a desired angle, then the path will follow that
-    % orientation and bounce against the adges of the image until
+    % orientation and bounce against the edges of the image until
     % reaching the desired position
     pos_y_it = pos_y_current;
     end_reached = 0;

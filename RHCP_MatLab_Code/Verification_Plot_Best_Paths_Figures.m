@@ -4,9 +4,11 @@
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -27,14 +29,22 @@ clear
 % Define names for files and figures
 num_figures = 19;
 codeFolderName = 'RHCP_MatLab_Code';
-resultsFolderName = {'RHCP_Verification_results_bands_1_nan','RHCP_Verification_results_bands_1_45_13'};
+resultsFolderName = {'RHCP_Verification_results_bands_1_nan','RHCP_Verification_results_bands_1_45_13'}; %{'RHCP_Band_Results_1','RHCP_Band_Results_45_1'};%{'RHCP_Verification_results_bands_1_nan','RHCP_Verification_results_bands_1_45_13'}; %{'RHCP_Validation_Experiment_Microstructures_Kim2015_format_Results','RHCP_Validation_Experiment_Microstructures_Kim2015_format_Results_45'};
 file_name_suffix = '_binary.tiff';
 best_path_suffix = '.tif_best_path_results.csv';
-legend_vect = {'$RHCP$','$RHCP^{\frac{\pi}{4},13}$'};
-figure_folder_name = 'RHCP_Verification_Best_Paths_Figures';
+legend_vect = {'$RHCP$','$RHCP^{45}$'};
+figure_folder_name = 'RHCP_Verification_Best_Paths_Figures'; %'RHCP_Band_Results_1_Best_Paths_Figures'; %'RHCP_Validation_Experiment_Microstructures_Kim2015_Best_Paths_Figures';
 figures_name_suffix = '_Micrograph_Path.pdf';
+fracParamZr = 50;
+fracParamZrH = 1;
+valueZrH = 1;
+desiredAngle = [ nan pi/4 ];
+W = 13;
+y_step = 10;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Plot figures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+pathEval_vect = zeros(num_figures,length(resultsFolderName)+1);
 
 for im = 1:num_figures
 
@@ -43,7 +53,13 @@ for im = 1:num_figures
     cd(resultsFolderName{1})
     fig = figure(im);
     filename = [num2str(im) '.tif' file_name_suffix];
-    imshow(filename)
+    binaryImage = imread(filename);
+    
+    binaryImage = imcomplement(binaryImage);
+    binaryImage = bwmorph(binaryImage, 'thicken',3);
+    binaryImage = imcomplement(binaryImage);
+    
+    imshow(binaryImage)
     hold on
     cd ../
     cd(codeFolderName)
@@ -60,18 +76,24 @@ for im = 1:num_figures
         % Go back to code folder
         cd ../
         cd(codeFolderName)
+        % Derive the RHCP value of the path
+        pathEval_vect(im,1) = im;
+        nodes = path(:,2);
+        eval = EvalPaths(nodes,binaryImage,fracParamZr,fracParamZrH,valueZrH,desiredAngle(f),W,y_step);
+        pathEval_vect(im,f+1) = eval(1);
     end
     
     % Plot the frame of the image
-    plot([1 size(path(:,2),1)+90],[1 1],'k-','LineWidth',1)
-    plot([1 size(path(:,2),1)-1+90],[size(path(:,2),1) size(path(:,2),1)],'k-','LineWidth',1)
-    plot([1 1],[1 size(path(:,2),1)],'k-','LineWidth',1)
-    plot([size(path(:,2),1)-1+88 size(path(:,2),1)-1+88],[1 size(path(:,2),1)],'k-','LineWidth',1)
+    [num_rows, num_columns, numberOfColorChannels] = size(binaryImage);
+    plot([1 num_columns],[1 1],'k-','LineWidth',1) %top
+    plot([1 num_columns],[num_rows num_rows],'k-','LineWidth',1) %bottom
+    plot([1 1],[1 num_rows],'k-','LineWidth',1) %left
+    plot([num_columns num_columns],[1 num_rows],'k-','LineWidth',1) %right
     
-    legend(legend_vect,'fontsize',25,'Interpreter','latex')
+    legend(legend_vect,'fontsize',27,'Location','NorthEast','Interpreter','latex')
     
     % Save figure
-    opts.width      = 21;
+    opts.width      = 20;
     opts.height     = 20;
     opts.fontType   = 'Latex';
     % caling
@@ -79,7 +101,7 @@ for im = 1:num_figures
     fig.Position(3)         = opts.width;
     fig.Position(4)         = opts.height;
     % remove unnecessary white space
-    set(gca,'LooseInset',max(get(gca,'TightInset'), 0.02))
+    set(gca,'LooseInset',max(get(gca,'TightInset'), 0.02)) 
     box on
     % Export to PDF
     set(gca,'units','centimeters')
@@ -98,5 +120,5 @@ for im = 1:num_figures
     
 end
 
-    
+pathEval_vect
     

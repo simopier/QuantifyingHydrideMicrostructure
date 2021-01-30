@@ -5,9 +5,11 @@ function [RHCP] = RHCP_file(codeFolderName,imageFolderName, filename, resultsFol
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -338,29 +340,32 @@ best_path = best_paths(:,best_path_ind);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define the Radial Hydride Continuous Path as the quality of the best path
-RHCP = best_path_eval;
+RHCP = max(best_path_eval,0);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plot the current paths, along with the current bands
 % Open the figure being studied
 cd ../
 cd(resultsFolderName)
+BinaryImageName = [filename '_binary.tiff'];
+BinaryImage = imread(BinaryImageName);
+[num_rows, num_columns, numberOfColorChannels] = size(BinaryImage);
 figure
-imshow([filename '_binary.tiff'])
+imshow(BinaryImageName)
 hold on
 
 % Plot the paths
 for i=1:size(best_path,2)
     % Plot the path on top of it
     path = [best_path(:,i) [1:size(best_path,1)]'];
-    plot(path(:,1),path(:,2),'-','LineWidth',3);
+    plot(path(:,1),path(:,2),'r-','LineWidth',3);
 end
 
 % Plot the frame
-plot([1 size(path(:,2),1)+90],[1 1],'k-','LineWidth',1)
-plot([1 size(path(:,2),1)-1+90],[size(path(:,2),1) size(path(:,2),1)],'k-','LineWidth',1)
-plot([1 1],[1 size(path(:,2),1)],'k-','LineWidth',1)
-plot([size(path(:,2),1)-1+88 size(path(:,2),1)-1+88],[1 size(path(:,2),1)],'k-','LineWidth',1)
+plot([1 num_columns],[1 1],'k-','LineWidth',1) %top
+plot([1 num_columns],[num_rows num_rows],'k-','LineWidth',1) %bottom
+plot([1 1],[1 num_rows],'k-','LineWidth',1) %left
+plot([num_columns num_columns],[1 num_rows],'k-','LineWidth',1) %right
 % Save figure
 opts.width      = 20;
 opts.height     = 20;
@@ -393,6 +398,26 @@ filename_results=[filename '_best_path_results.csv'];
 results_mat=[[1:length_binaryImage]' best_path];
 % add a header
 cHeader = {'y' 'x'}; %header
+textHeader = strjoin(cHeader, ',');
+% write header to file
+fid = fopen(filename_results,'w');
+fprintf(fid,'%s\n',textHeader);
+fclose(fid);
+
+% write data in file
+dlmwrite(filename_results,results_mat,'-append');
+cd ../
+cd(codeFolderName)
+
+
+
+cd ../
+cd(resultsFolderName)
+% Save the best evaluation - RHCP
+filename_results=[filename '_best_evaluation_RHCP.csv'];
+results_mat=[ best_path_eval];
+% add a header
+cHeader = {'RHCP'}; %header
 textHeader = strjoin(cHeader, ',');
 % write header to file
 fid = fopen(filename_results,'w');

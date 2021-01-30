@@ -4,9 +4,11 @@
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -24,8 +26,8 @@ close all
 clear
 
 % Initialization
-codeFolderName = 'RHCP_Matlab_Code';
-resultsFolderName =  'RHCP_Validation_Results';
+codeFolderName = 'RHCP_MatLab_Code';
+resultsFolderName =  'RHCP_Validation_Results_12';
 list_names = [6	7 8	9	10	11	12	13	14	15	54	55	56	60	61	82	83	84];
 user_path_eval = zeros(length(list_names),1);
 
@@ -46,7 +48,7 @@ for i=1:length(list_names)
         if j == 1
             positions_vect(j,2) = max(1,floor(positions_vect(j,2)));
         else
-            positions_vect(j,2) = floor(positions_vect(j,2));
+            positions_vect(j,2) = max(1,floor(positions_vect(j,2)));
             if size(find(positions_vect(1:j-1,2) == positions_vect(j,2)),1) > 0
                 positions_vect(j,2) = positions_vect(j-1,2)+1;
             end

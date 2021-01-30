@@ -1,13 +1,15 @@
-function [ ] = Verification_Continuity( codeFolderNameRHCF,codeFolderNameHCC,codeFolderNameRHCP,imageFolderName,imageFolderNameExpectedContinuity,csvfilename_Expected,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameRHCF,resultsFolderNameHCC,resultsFolderNameRHCP, Min_Segment_Length, PerCut, tolConvergence, numPaths, Mutation, primary_nodes_dist, disp_num, disp_size, annealingTime, numRun, CPMax, num_smoothing,fracParamZr,fracParamZrH,valueZrH, num_bands, bridge_criteria_ratio, plotFrequency,desiredAngle,W,y_step)
+function [ ] = Verification_Continuity( codeFolderNameRHCF,codeFolderNameHCC,codeFolderNameRHCP,imageFolderName,imageFolderNameExpectedContinuity,csvfilename_Expected,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameRHCF,resultsFolderNameHCC,resultsFolderNameRHCP, Min_Segment_Length, band_width, PerCut, tolConvergence, numPaths, Mutation, primary_nodes_dist, disp_num, disp_size, annealingTime, numRun, CPMax, num_smoothing,fracParamZr,fracParamZrH,valueZrH, num_bands, bridge_criteria_ratio, plotFrequency,desiredAngle,W,y_step)
 %-------------------------------------------------------------------------%
 %                                                                         %
 %       Script developed by Pierre-Clement A Simon and Cailon Frank       %
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -72,14 +74,13 @@ function [ ] = Verification_Continuity( codeFolderNameRHCF,codeFolderNameHCC,cod
 %%%%%%%%%%%%%%%%%% Perform analysis for each definition %%%%%%%%%%%%%%%%%%%
 cd ../
 cd(codeFolderNameRHCF)
-RHCF_main(codeFolderNameRHCF,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameRHCF)
+RHCF_main(codeFolderNameRHCF,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameRHCF, band_width)
 cd ../
 cd(codeFolderNameHCC)
-HCC_main(codeFolderNameHCC,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameHCC, Min_Segment_Length)
+HCC_main(codeFolderNameHCC,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameHCC, Min_Segment_Length, band_width)
 cd ../
 cd(codeFolderNameRHCP)
 RHCP_main(codeFolderNameRHCP,imageFolderName,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameRHCP, PerCut, tolConvergence, numPaths, Mutation, primary_nodes_dist, disp_num, disp_size, annealingTime, numRun, CPMax, num_smoothing,fracParamZr,fracParamZrH,valueZrH, num_bands, bridge_criteria_ratio, plotFrequency,desiredAngle,W,y_step)
-
 %%%%%%%%%%%%%%%%%%%%%%%% Upload expected results %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Find the .csv file containing the expected results for microstructures in
 % the folder imagesFolderName, and load the values in a vector
