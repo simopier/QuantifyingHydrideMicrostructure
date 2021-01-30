@@ -10,9 +10,11 @@ function [ ] = HCC_main(codeFolderName,imageFolderName,startingLowThreshold,star
 %           Report AECL-5110                                              %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -65,7 +67,7 @@ resolution = imageResolution( codeFolderName, imageFolderName, resolution );
 
 imageBinary_folder( codeFolderName, imageFolderName, startingLowThreshold, startingHighThreshold, SpotSize, HoleSize, resultsFolderName );
 
-%%%%%%%%%%%%%%%%%%% Analyse the binary images, *start of connectivity code* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% Analyse the binary images %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 HCC_folder(codeFolderName, imageFolderName, resultsFolderName, resolution, Min_Segment_Length, band_width);
 
