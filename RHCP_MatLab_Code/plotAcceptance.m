@@ -5,9 +5,11 @@ function [] = plotAcceptance(codeFolderName, filename, resultsFolderName, CPTota
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -74,8 +76,8 @@ set(gcf,'PaperUnits','centimeters');
 set(gcf,'PaperSize',[opts.width opts.height]);
 set(gcf,'PaperPositionMode','manual');
 set(gcf,'PaperPosition',[0 0 opts.width opts.height]);
-saveas(gcf,[filename '_' num2str(numRun) '_' num2str(bands_global_iteration) '_' num2str(bands_iteration) '_RHCP_percentage_acceptance.pdf'])
-saveas(gcf,[filename '_' num2str(numRun) '_' num2str(bands_global_iteration) '_' num2str(bands_iteration) '_RHCP_percentage_acceptance.fig'])
+saveas(gcf,[filename '_' num2str(numRun) '_' num2str(bands_global_iteration) '_' num2str(bands_iteration) '_' num2str(CPTotal) '_RHCP_percentage_acceptance.pdf'])
+saveas(gcf,[filename '_' num2str(numRun) '_' num2str(bands_global_iteration) '_' num2str(bands_iteration) '_' num2str(CPTotal) '_RHCP_percentage_acceptance.fig'])
 close % close the figure
 
 % Go back to the code folder

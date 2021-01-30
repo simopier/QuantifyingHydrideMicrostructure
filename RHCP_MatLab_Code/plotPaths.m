@@ -5,9 +5,11 @@ function [ ] = plotPaths(nodes, plotFrequency, filename, codeFolderName, results
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -38,8 +40,11 @@ if (mod(figureNumber,plotFrequency)==1) % only plots every plotFrequency steps
     % Open the figure being studied
     cd ../
     cd(resultsFolderName)
+    BinaryImageName = [filename '_binary.tiff'];
+    BinaryImage = imread(BinaryImageName);
+    [num_rows, num_columns, numberOfColorChannels] = size(BinaryImage);
     figure(figureNumber)
-    imshow([filename '_binary.tiff'])
+    imshow(BinaryImageName)
     hold on
     
     % Plot the paths
@@ -49,11 +54,11 @@ if (mod(figureNumber,plotFrequency)==1) % only plots every plotFrequency steps
         plot(path(:,1),path(:,2),'-','LineWidth',3);
     end
 
-    % for verification
-%     plot([1 size(path(:,2),1)+90],[1 1],'k-','LineWidth',1)
-%     plot([1 size(path(:,2),1)-1+90],[size(path(:,2),1) size(path(:,2),1)],'k-','LineWidth',1)
-%     plot([1 1],[1 size(path(:,2),1)],'k-','LineWidth',1)
-%     plot([size(path(:,2),1)-1+88 size(path(:,2),1)-1+88],[1 size(path(:,2),1)],'k-','LineWidth',1)
+    % Plot the frame
+    plot([1 num_columns],[1 1],'k-','LineWidth',1) %top
+    plot([1 num_columns],[num_rows num_rows],'k-','LineWidth',1) %bottom
+    plot([1 1],[1 num_rows],'k-','LineWidth',1) %left
+    plot([num_columns num_columns],[1 num_rows],'k-','LineWidth',1) %right
     % Save figure
     opts.width      = 20;
     opts.height     = 20;

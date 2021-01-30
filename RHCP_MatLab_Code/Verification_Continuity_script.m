@@ -4,9 +4,11 @@
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -14,7 +16,7 @@
 %-------------------------------------------------------------------------%
 
 % Description:
-% Run verification of the continuity code
+% Run verification of the RHCP code
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Initialization %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % clean workspace
@@ -25,7 +27,7 @@ clear
 codeFolderNameRHCF = 'RHCF_Matlab_Code';
 codeFolderNameHCC = 'HCC_Matlab_Code';
 codeFolderNameRHCP = 'RHCP_Matlab_Code';
-imageFolderName = 'Continuous_Verification_Micrographs';
+imageFolderName = 'RHCP_Band_Microstructure';
 imageFolderNameExpectedContinuity = 'Connectivity_HCC_RHCF_RHCP_Verification_data';
 csvfilename_Expected = 'RHCF_HCC_RHCP_values_verification.csv';
 startingLowThreshold = 250;
@@ -35,17 +37,18 @@ HoleSize = 0;
 resolution = 0;
 resultsFolderNameRHCF = 'RHCF_Verification_results';
 resultsFolderNameHCC = 'HCC_Verification_results';
-resultsFolderNameRHCP = 'RHCP_Verification_results_bands_1_nan'; %%%%%%%%
+resultsFolderNameRHCP = 'RHCP_Band_Results_45_1'; %%%%%%%%
+band_width = Inf; % Use the whole image for HCC and RHCF
 Min_Segment_Length = 5;
-PerCut = 0.01; % 0.03
+PerCut = 0.005; % 0.03
 tolConvergence = 1e-4;
 numPaths = 50;
 Mutation = 0.05;
 primary_nodes_dist = 1;
 disp_num = 50;
 disp_size = 20;
-annealingTime = 10000;
-numRun = 1;
+annealingTime = 1000;
+numRun = 1; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CPMax =  50001;
 num_smoothing = 1;
 fracParamZr = 50;
@@ -54,7 +57,7 @@ valueZrH = 1;
 num_bands = 1; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 bridge_criteria_ratio = 0.6;
 plotFrequency = 5000; % 500
-desiredAngle = nan; % angle in rad, or nan
+desiredAngle = pi/4; % angle in rad (pi/4), or nan
 W = 13;
 y_step = 10;
 
@@ -81,7 +84,4 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%% Perform verification %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Verification_Continuity( codeFolderNameRHCF,codeFolderNameHCC,codeFolderNameRHCP,imageFolderName,imageFolderNameExpectedContinuity,csvfilename_Expected,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameRHCF,resultsFolderNameHCC,resultsFolderNameRHCP, Min_Segment_Length, PerCut, tolConvergence, numPaths, Mutation, primary_nodes_dist, disp_num, disp_size, annealingTime, numRun, CPMax, num_smoothing,fracParamZr,fracParamZrH,valueZrH, num_bands, bridge_criteria_ratio, plotFrequency,desiredAngle,W,y_step)
-
-
-
+Verification_Continuity( codeFolderNameRHCF,codeFolderNameHCC,codeFolderNameRHCP,imageFolderName,imageFolderNameExpectedContinuity,csvfilename_Expected,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resolution,resultsFolderNameRHCF,resultsFolderNameHCC,resultsFolderNameRHCP, Min_Segment_Length, band_width, PerCut, tolConvergence, numPaths, Mutation, primary_nodes_dist, disp_num, disp_size, annealingTime, numRun, CPMax, num_smoothing,fracParamZr,fracParamZrH,valueZrH, num_bands, bridge_criteria_ratio, plotFrequency,desiredAngle,W,y_step)

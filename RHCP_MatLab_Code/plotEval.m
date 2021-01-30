@@ -5,9 +5,11 @@ function [] = plotEval(codeFolderName, filename, resultsFolderName, plotFrequenc
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -68,7 +70,7 @@ if (mod(CPTotal,plotFrequency)==1) % only plots every plotFrequency steps
     ylab=ylabel('$RHCP$','Interpreter','latex','fontsize',24);
     legend({'$RHCP_{max}$','$RHCP_{median}$','$RHCP_{mean}$','$RHCP_{min}$'},'Interpreter','latex')
     set([legend],'fontsize',18,'location', 'SouthEast')
-    axis([0 CPTotal min(0,max(min(min_eval),-4)) 1.1])
+    axis([0 CPTotal min(0,max(min(min_eval),-1)) 1.1])
     
     % Save figure
     opts.width      = 20;
@@ -87,8 +89,8 @@ if (mod(CPTotal,plotFrequency)==1) % only plots every plotFrequency steps
     set(gcf,'PaperSize',[opts.width opts.height]);
     set(gcf,'PaperPositionMode','manual');
     set(gcf,'PaperPosition',[0 0 opts.width opts.height]);
-    saveas(gcf,[filename '_' num2str(numRun) '_' num2str(bands_global_iteration) '_' num2str(bands_iteration) '_RHCP_evaluation.pdf'])
-    saveas(gcf,[filename '_' num2str(numRun) '_' num2str(bands_global_iteration) '_' num2str(bands_iteration) '_RHCP_evaluation.fig'])
+    saveas(gcf,[filename '_' num2str(numRun) '_' num2str(bands_global_iteration) '_' num2str(bands_iteration) '_' num2str(CPTotal) '_RHCP_evaluation.pdf'])
+    saveas(gcf,[filename '_' num2str(numRun) '_' num2str(bands_global_iteration) '_' num2str(bands_iteration) '_' num2str(CPTotal) '_RHCP_evaluation.fig'])
     close % close the figure
     
     % Go back to the code folder
