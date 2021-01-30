@@ -5,9 +5,11 @@ function [] = RHF_validation(codeFolderName,csvfilenames_Expected,list_csvfilena
 %       From Penn State University                                        %
 %                                                                         %
 %       Published in                                                      %
-%           Quantifying zirconium embrittlement due to hydride            %
-%           microstructure using image analysis                           %
-%           https:// ...                                                  %
+%           P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks,%
+%           A.T. Motta. Quantifying the effect of hydride microstructure  %
+%           on zirconium alloys embrittlement using image analysis.       %
+%           Journal of Nuclear Materials, 547 (2021) 152817               %
+%   https://www.sciencedirect.com/science/article/pii/S0022311521000404   %
 %                                                                         %
 %       Full MATLAB Code available at:                                    %
 %           https://github.com/simopier/QuantifyingHydrideMicrostructure  %
@@ -30,7 +32,7 @@ function [] = RHF_validation(codeFolderName,csvfilenames_Expected,list_csvfilena
 % and measured values on ImageJ for the validation of the RHF method.
 
 % Call example:
-% RHF_validation('RHF_Matlab_code','RHF_Validation_Microstructures_results.csv',[6 7 8 9 10 11 12 13 14 15 54 55 56 60 61],'RHF_Validation_Results')
+% RHF_validation('RHF_MatLab_code','RHF_Validation_Microstructures_results.csv',[6 7 8 9 10 11 12 13 14 15 54 55 56 60 61],'RHF_Validation_Results')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Initialize %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 RHF_ideal_vect = zeros(length(list_csvfilenames_ImageJ),1);
