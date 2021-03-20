@@ -5,17 +5,18 @@ This document contains important information on the content of the QuantifyingHy
 
 ## Outline
 * 1. How to cite this work.
-* 2. Description of the QuantifyingHydrideMicrostructure repository content.
-* 3. Prerequisite to use the MATLAB Code.
-* 4. Description of the MATLAB code for RHF.
-* 5. Instructions on how to use the MATLAB code for RHF.
-* 6. Decription of the MATLAB code for RHCP.
-* 7. Instructions on how to use the MATLAB code for RHCP.
-* 8. Decription of the MATLAB code for HCC.
-* 9. Instructions on how to use the MATLAB code for HCC.
-* 10. Decription of the MATLAB code for RHCF.
-* 11. Instructions on how to use the MATLAB code for RHCF.
-* 12. Instructions on how to use the GUI to binarize images.
+* 2. Video - Presentation at TMS2021
+* 3. Description of the QuantifyingHydrideMicrostructure repository content.
+* 4. Prerequisite to use the MATLAB Code.
+* 5. Description of the MATLAB code for RHF.
+* 6. Instructions on how to use the MATLAB code for RHF.
+* 7. Decription of the MATLAB code for RHCP.
+* 8. Instructions on how to use the MATLAB code for RHCP.
+* 9. Decription of the MATLAB code for HCC.
+* 10. Instructions on how to use the MATLAB code for HCC.
+* 11. Decription of the MATLAB code for RHCF.
+* 12. Instructions on how to use the MATLAB code for RHCF.
+* 13. Instructions on how to use the GUI to binarize images.
 
 ## 1. How to cite this work.
 
@@ -23,7 +24,11 @@ When using this work, please appropriately cite the publication available [here]
 
 P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks, A.T. Motta, Quantifying zirconium embrittlement due to hydride microstructure using image analysis. *Journal of Nuclear Materials* 547 (2021) 152817.
 
-## 2. Description of the QuantifyingHydrideMicrostructure repository content
+## 2. Video - Presentation at TMS2021.
+
+This work was rpesented in March 2021 at TMS2021. The video of the presentation is available [here](https://www.youtube.com/watch?v=EcVpjCgMWdQ&list=TLPQMjAwMzIwMjEoCXK9uZ4WsA&index=2&ab_channel=TonksResearchGroup).
+
+## 3. Description of the QuantifyingHydrideMicrostructure repository content
 
 * __HCC_MatLab_Code__ contains the MATLAB code for the Hydride Continuity Coefficient (HCC). 
 * __RHCF_MatLab_Code__ contains the MATLAB code for the Radial Hydride Continuous Factor (RHCF).
@@ -36,7 +41,7 @@ P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks, A.T. Motta, Quant
 * __License.md__ contains the license for this repository.
 * __README.md__ is the current document with information on the content of the QuantifyingHydrideMicrostructure repository, and information on how to use the two MATLAB codes for Radial Hydride Fraction (RHF), Radial Hydride Continuous Path (RHCP), Hydride Continuity Coefficient (HCC), and Radial Hydride Continuous Factor (RHCF) to quantify hydride microstructures.
 
-## 3. Prerequisite to use the MATLAB Code.
+## 4. Prerequisite to use the MATLAB Code.
 
 #### 1. Download MATLAB
 * As a PennState student, you can download MATLAB [here](https://softwarestore.psu.edu/mathworks-license/-8474).
@@ -97,7 +102,7 @@ The list of the files and their purpose is available below, along with a diagram
 | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_MatLab_Code/RHF_architecture.png" width="1000"> | 
 
 
-## 5. Instructions on how to use the MATLAB code for RHF.
+## 6. Instructions on how to use the MATLAB code for RHF.
 
 #### 1. Save your micrographs
 
@@ -185,7 +190,7 @@ The list of the files and their purpose is available below, along with a diagram
 | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_MatLab_Code/RHCP_architecture.png" width="1000"> | 
 
 
-## 7. Instructions on how to use the MATLAB code for RHCP.
+## 8. Instructions on how to use the MATLAB code for RHCP.
 
 #### 1. Save your micrographs
 
@@ -259,7 +264,7 @@ You should find:
   * Several .fig and .pdf files showing the evolution of the percentage of accepted paths as a function of the number of iterations during convergence, ending with *_RHCP_percentage_acceptance*
   * Several .fig and .pdf files showing the evolution of the RHCP values (min, max, mean, median) as a function of the number of iterations during convergence , ending with *_RHCP_evaluation*
 
-## 8. Decription of the MATLAB code for HCC.
+## 9. Decription of the MATLAB code for HCC.
 The MATLAB code for the HCC is available [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/HCC_MatLab_Code).
 
 The list of the files and their purpose is available below, along with a diagram showing the code architecture. 
@@ -282,7 +287,7 @@ The list of the files and their purpose is available below, along with a diagram
 | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/HCC_MatLab_Code/HCC_architecture.png" width="1000"> | 
 
 
-## 9. Instructions on how to use the MATLAB code for HCC.
+## 10. Instructions on how to use the MATLAB code for HCC.
 
 Please note that in this implemetation, the whole micrograph is used to determine HCC. If you want to use the initial definition from Bell et al. 1975, make sure that the width of the microstructures corresponds to the definition. 
 
@@ -334,7 +339,7 @@ You should find:
   * a .tif and a .jpeg images showing the binarized micrograph, ending with *_binary.jpeg*.
   
   
-## 10. Decription of the MATLAB code for RHCF.
+## 11. Decription of the MATLAB code for RHCF.
 The MATLAB code for the RHCF is available [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHCF_MatLab_Code).
 
 The list of the files and their purpose is available below, along with a diagram showing the code architecture. 
@@ -356,7 +361,7 @@ The list of the files and their purpose is available below, along with a diagram
 |-----------------------------------------|
 | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCF_MatLab_Code/RHCF_architecture.png" width="1000"> | 
 
-## 11. Instructions on how to use the MATLAB code for RHCF.
+## 12. Instructions on how to use the MATLAB code for RHCF.
 
 Please note that in this implemetation, the whole micrograph is used to determine RHCF. If you want to use the initial definition from Billone et al. 2013, make sure that the width of the microstructures corresponds to the definition. 
 
@@ -407,7 +412,7 @@ You should find:
   * a .tif and a .jpeg images showing the binarized micrograph, ending with *_binary.jpeg*.
   
   
-## 12. Instructions on how to use the GUI to binarize images.
+## 13. Instructions on how to use the GUI to binarize images.
 
 When using one of these MATLAB algorithm, you will be prompt to use a GUI to binarize the microstructures being analyzed. Please note that if the microstructure have already been binarized and that the binarization parameters are saved in the results folder, then the MATLAB code will use these parameters instead of asking you to binarize them again. If you want to binarize them again, input a different result folder name. The GUI will appear as shown in the following image:
 
