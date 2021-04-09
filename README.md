@@ -24,6 +24,25 @@ When using this work, please appropriately cite the publication available [here]
 
 P.-C.A. Simon, C. Frank, L.-Q. Chen, M.R. Daymond, M.R. Tonks, A.T. Motta, Quantifying zirconium embrittlement due to hydride microstructure using image analysis. *Journal of Nuclear Materials* 547 (2021) 152817.
 
+<details>
+<summary><b>Bibtex</b></summary>
+
+@article{Simon2021,  
+author = {Simon, Pierre Cl{\'{e}}ment A. and Frank, Cailon and Chen, Long Qing and Daymond, Mark R. and Tonks, Michael R. and Motta, Arthur T.},  
+doi = {10.1016/j.jnucmat.2021.152817},  
+issn = {00223115},  
+journal = {Journal of Nuclear Materials},  
+keywords = {Cladding embrittlement,Genetic algorithm,Hydride continuity,Radial hydride fraction,Zirconium hydrides},  
+month = {jan},  
+pages = {152817},  
+publisher = {Elsevier BV},  
+title = {{Quantifying the effect of hydride microstructure on zirconium alloys embrittlement using image analysis}},  
+volume = {547},  
+year = {2021}  
+}
+
+</details>
+
 ## 2. Video - Presentation at TMS2021.
 
 This work was rpesented in March 2021 at TMS2021. The video of the presentation is available [here](https://www.youtube.com/watch?v=EcVpjCgMWdQ&list=TLPQMjAwMzIwMjEoCXK9uZ4WsA&index=2&ab_channel=TonksResearchGroup).
