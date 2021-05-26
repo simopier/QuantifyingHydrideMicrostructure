@@ -3,20 +3,23 @@
 ## Summary
 This document contains important information on the content of the QuantifyingHydrideMicrostructure repository, and information on how to use the two MATLAB codes for Radial Hydride Fraction (RHF, Radial Hydride Continuous Path (RHCP), Hydride Continuity Coefficient (HCC), and Radial Hydride Continuous Factor (RHCF) to quantify hydride microstructures. 
 
+
 ## Outline
-* 1. How to cite this work.
-* 2. Video - Presentation at TMS2021
-* 3. Description of the QuantifyingHydrideMicrostructure repository content.
-* 4. Prerequisite to use the MATLAB Code.
-* 5. Description of the MATLAB code for RHF.
-* 6. Instructions on how to use the MATLAB code for RHF.
-* 7. Decription of the MATLAB code for RHCP.
-* 8. Instructions on how to use the MATLAB code for RHCP.
-* 9. Decription of the MATLAB code for HCC.
-* 10. Instructions on how to use the MATLAB code for HCC.
-* 11. Decription of the MATLAB code for RHCF.
-* 12. Instructions on how to use the MATLAB code for RHCF.
-* 13. Instructions on how to use the GUI to binarize images.
+* 1. [How to cite this work.](#cite-work)
+* 2. [Video - Presentation at TMS2021.](#tms2021)
+* 3. [Description of the QuantifyingHydrideMicrostructure repository content.](#code-description)
+* 4. [Prerequisite to use the MATLAB Code.](#matlab-prerequisite)
+* 5. [Description of the MATLAB code for RHF.](#rhf-description)
+* 6. [Instructions on how to use the MATLAB code for RHF.](#rhf-instruct)
+* 7. [Decription of the MATLAB code for RHCP.](#rhcp-description)
+* 8. [Instructions on how to use the MATLAB code for RHCP.](#rhcp-instruct)
+* 9. [Decription of the MATLAB code for HCC.](#hcc-description)
+* 10. [Instructions on how to use the MATLAB code for HCC.](#hcc-instruct)
+* 11. [Decription of the MATLAB code for RHCF.](#rhcf-description)
+* 12. [Instructions on how to use the MATLAB code for RHCF.](#rhcf-instruct)
+* 13. [Instructions on how to use the GUI to binarize images.](#gui)
+
+<a name="cite-work" />
 
 ## 1. How to cite this work.
 
@@ -43,9 +46,13 @@ year = {2021}
 
 </details>
 
+<a name="tms2021" />
+
 ## 2. Video - Presentation at TMS2021.
 
 This work was rpesented in March 2021 at TMS2021. The video of the presentation is available [here](https://www.youtube.com/watch?v=EcVpjCgMWdQ&list=TLPQMjAwMzIwMjEoCXK9uZ4WsA&index=2&ab_channel=TonksResearchGroup).
+
+<a name="code-description" />
 
 ## 3. Description of the QuantifyingHydrideMicrostructure repository content
 
@@ -60,7 +67,11 @@ This work was rpesented in March 2021 at TMS2021. The video of the presentation 
 * __License.md__ contains the license for this repository.
 * __README.md__ is the current document with information on the content of the QuantifyingHydrideMicrostructure repository, and information on how to use the two MATLAB codes for Radial Hydride Fraction (RHF), Radial Hydride Continuous Path (RHCP), Hydride Continuity Coefficient (HCC), and Radial Hydride Continuous Factor (RHCF) to quantify hydride microstructures.
 
+<a name="matlab-prerequisite" />
+
 ## 4. Prerequisite to use the MATLAB Code.
+
+<a name="matlab-download" />
 
 #### 1. Download MATLAB
 * As a PennState student, you can download MATLAB [here](https://softwarestore.psu.edu/mathworks-license/-8474).
@@ -89,7 +100,9 @@ To install the toolbox, if you have a recent version, on the main MATLAB window,
 #### 2. Download the repository or the specific MATLAB code you want to use
 You can download the repository [here](https://github.com/simopier/QuantifyingHydrideMicrostructure).
 
-When the running the code, if you are getting error messages involving 'imcomplement', you might have to reinstall the image processing toolbox as described above in __3-1. Download MATLAB__.
+When the running the code, if you are getting error messages involving 'imcomplement', you might have to reinstall the image processing toolbox as described above in *[Download MATLAB](#matlab-download)*.
+
+<a name="rhf-description" />
 
 ## 4. Description of the MATLAB code for RHF.
 
@@ -120,6 +133,7 @@ The list of the files and their purpose is available below, along with a diagram
 |-----------------------------------------|
 | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHF_MatLab_Code/RHF_architecture.png" width="1000"> | 
 
+<a name="rhf-instruct" />
 
 ## 6. Instructions on how to use the MATLAB code for RHF.
 
@@ -154,7 +168,8 @@ RHF_main('RHF_MatLab_Code','RHF_Validation_Microstructures',240,255,90,10,0,Inf,
 #### 6. Binarize the microstructures
 *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
 
-To use the GUI, you can refer to section *12 .Instructions on how to use the GUI to binarize images.* of this document. You will be asked to define the binarization parameters for each micrograph in the image folder.  
+To use the GUI, you can refer to section *[Instructions on how to use the GUI to binarize images](#gui)* of this document. You will be asked to define the binarization parameters for each micrograph in the image folder.  
+The MATLAB code automatically converts the images to greyscale to ease the analysis. The converted greyscale images are then stored in a folder automatically created named 'imageFolderName'\_formated, with 'imageFolderName' the name of the folder in which images are stored.
 
 #### 7. Monitor the algorithm
 Once you are done binarizing the micrographs, the MATLAB code will start the analysis. At this point, you do not need to do anything since the analysis is automated.
@@ -168,6 +183,8 @@ You should find:
   * a .csv file containing the binary parameters, ending with *_BinaryParam.csv*.
   * a .tif and a .jpeg images showing the binarized micrograph, ending with *_binary.jpeg*.
   * a results .csv file containing the list of all the hydrides in the micrograph and their corresponding RHF and hydride length. 
+
+<a name="rhcp-description" />
 
 ## 6. Decription of the MATLAB code for RHCP.
 The MATLAB code for the RHCP is available [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHCP_MatLab_Code).
@@ -208,6 +225,7 @@ The list of the files and their purpose is available below, along with a diagram
 |-----------------------------------------|
 | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCP_MatLab_Code/RHCP_architecture.png" width="1000"> | 
 
+<a name="rhcp-instruct" />
 
 ## 8. Instructions on how to use the MATLAB code for RHCP.
 
@@ -262,7 +280,8 @@ RHCP_main('RHCP_Matlab_code','RHCP_Validation_Microstructures',100,255,60,10,0,'
 #### 4. Binarize the microstructures
 *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
 
-To use the GUI, you can refer to section *12 .Instructions on how to use the GUI to binarize images.* of this document. You will be asked to define the binarization parameters for each micrograph in the image folder.  
+To use the GUI, you can refer to section *[Instructions on how to use the GUI to binarize images](#gui)* of this document. You will be asked to define the binarization parameters for each micrograph in the image folder.  
+The MATLAB code automatically converts the images to greyscale to ease the analysis. The converted greyscale images are then stored in a folder automatically created named 'imageFolderName'\_formated, with 'imageFolderName' the name of the folder in which images are stored.
 
 #### 5. Monitor the algorithm
 Once you are done binarizing the micrographs, the MATLAB code will start the analysis. At this point, you do not need to do anything since the analysis is automated. To help you monitor the advancement of the algorithm, the MATLAB code will produce figures showing the convergence of the algorithm, as well as the paths on the micrographs. These figures are saved in the results folder for future reference.
@@ -282,6 +301,8 @@ You should find:
   * Several .csv files containing the RHCP values currently found for this micrograph at several stages of the convergence.
   * Several .fig and .pdf files showing the evolution of the percentage of accepted paths as a function of the number of iterations during convergence, ending with *_RHCP_percentage_acceptance*
   * Several .fig and .pdf files showing the evolution of the RHCP values (min, max, mean, median) as a function of the number of iterations during convergence , ending with *_RHCP_evaluation*
+
+<a name="hcc-description" />
 
 ## 9. Decription of the MATLAB code for HCC.
 The MATLAB code for the HCC is available [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/HCC_MatLab_Code).
@@ -305,6 +326,8 @@ The list of the files and their purpose is available below, along with a diagram
 |-----------------------------------------|
 | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/HCC_MatLab_Code/HCC_architecture.png" width="1000"> | 
 
+
+<a name="hcc-instruct" />
 
 ## 10. Instructions on how to use the MATLAB code for HCC.
 
@@ -343,7 +366,8 @@ HCC_main('HCC_Matlab_code','RHCP_Verification_Microstructures',100,255,60,10,0,'
 #### 4. Binarize the microstructures
 *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
 
-To use the GUI, you can refer to section *12 .Instructions on how to use the GUI to binarize images.* of this document. You will be asked to define the binarization parameters for each micrograph in the image folder.  
+To use the GUI, you can refer to section *[Instructions on how to use the GUI to binarize images](#gui)* of this document. You will be asked to define the binarization parameters for each micrograph in the image folder.  
+The MATLAB code automatically converts the images to greyscale to ease the analysis. The converted greyscale images are then stored in a folder automatically created named 'imageFolderName'\_formated, with 'imageFolderName' the name of the folder in which images are stored.
 
 #### 5. Monitor the algorithm
 Once you are done binarizing the micrographs, the MATLAB code will start the analysis. At this point, you do not need to do anything since the analysis is automated.
@@ -357,7 +381,9 @@ You should find:
   * a .csv file containing the binary parameters, ending with *_BinaryParam.csv*.
   * a .tif and a .jpeg images showing the binarized micrograph, ending with *_binary.jpeg*.
   
-  
+
+<a name="rhcf-description" />
+
 ## 11. Decription of the MATLAB code for RHCF.
 The MATLAB code for the RHCF is available [here](https://github.com/simopier/QuantifyingHydrideMicrostructure/tree/master/RHCF_MatLab_Code).
 
@@ -379,6 +405,8 @@ The list of the files and their purpose is available below, along with a diagram
 | Diagram of the code architecture           |
 |-----------------------------------------|
 | <img src="https://github.com/simopier/QuantifyingHydrideMicrostructure/blob/master/RHCF_MatLab_Code/RHCF_architecture.png" width="1000"> | 
+
+<a name="rhcf-instruct" />
 
 ## 12. Instructions on how to use the MATLAB code for RHCF.
 
@@ -416,7 +444,8 @@ RHCF_main('RHCF_Matlab_code','RHCP_Verification_Microstructures',100,255,60,10,0
 #### 4. Binarize the microstructures
 *The MATLAB code will open a GUI prompting you to modify the parameters to binarize the image.* 
 
-To use the GUI, you can refer to section *12 .Instructions on how to use the GUI to binarize images.* of this document. You will be asked to define the binarization parameters for each micrograph in the image folder.  
+To use the GUI, you can refer to section *[Instructions on how to use the GUI to binarize images](#gui)* of this document. You will be asked to define the binarization parameters for each micrograph in the image folder.  
+The MATLAB code automatically converts the images to greyscale to ease the analysis. The converted greyscale images are then stored in a folder automatically created named 'imageFolderName'\_formated, with 'imageFolderName' the name of the folder in which images are stored.
 
 #### 5. Monitor the algorithm
 Once you are done binarizing the micrographs, the MATLAB code will start the analysis. At this point, you do not need to do anything since the analysis is automated.
@@ -430,7 +459,8 @@ You should find:
   * a .csv file containing the binary parameters, ending with *_BinaryParam.csv*.
   * a .tif and a .jpeg images showing the binarized micrograph, ending with *_binary.jpeg*.
   
-  
+<a name="gui" />
+
 ## 13. Instructions on how to use the GUI to binarize images.
 
 When using one of these MATLAB algorithm, you will be prompt to use a GUI to binarize the microstructures being analyzed. Please note that if the microstructure have already been binarized and that the binarization parameters are saved in the results folder, then the MATLAB code will use these parameters instead of asking you to binarize them again. If you want to binarize them again, input a different result folder name. The GUI will appear as shown in the following image:
