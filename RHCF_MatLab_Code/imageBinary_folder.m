@@ -17,7 +17,7 @@ function [ ] = imageBinary_folder( codeFolderName, ImageFolderName, startingLowT
 %-------------------------------------------------------------------------%
 
 % Description:
-% This function is called by RHCF_main.m and call imageBinary.m to binarize
+% This function is called by HCC_main.m and call imageBinary.m to binarize
 % the microstructures in ImageFolderName. Binarizing the image is the first
 % and one of the most important steps of the algorithm. The aim is to keep 
 % only the hydrides in the image. The GUI helps the user define the 
@@ -56,13 +56,36 @@ for i=1:size(MyFolderInfo,1)
     number_vect(i)=str2num(char(text));
 end
 
+%%%%%%%%%%%%%%%% Convert RGB images to greyscale images %%%%%%%%%%%%%%%%%%%
+% create folder for formated images
+cd ../
+ImageFolderNameFormated = [ImageFolderName '_formated'];
+mkdir(ImageFolderNameFormated)
+cd(codeFolderName)
+for i=1:length(names_vect)
+    % go to the image folder
+    cd(['../' ImageFolderName])
+    % open image
+    filenameI = char(names_vect(i));
+    I = imread(filenameI);
+    % convert image from RGB to grayscale if needed
+    if ndims(I) > 2
+        I = rgb2gray(I);
+    end
+    % save image in folder of formated images
+    cd(['../' ImageFolderNameFormated])
+    imwrite(I,filenameI);
+end
+% go back to the code folder
+cd(['../' codeFolderName])
+
 %%%%% Define the initial binarization parameters with the first image %%%%%
 
 % Binarizing the image is the first and one of the most important steps
 % of the algorithm. The aim is to keep only the hydrides in the image. The
 % GUI helps the user define the binarization parameters.
 filename=char(names_vect(1));
-[ binaryImage,lowThreshold,highThreshold,SpotSize,HoleSize] = imageBinary(codeFolderName,ImageFolderName,filename,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resultsFolderName);
+[ binaryImage,lowThreshold,highThreshold,SpotSize,HoleSize] = imageBinary(codeFolderName,ImageFolderNameFormated,filename,startingLowThreshold,startingHighThreshold,SpotSize,HoleSize,resultsFolderName);
 close
 
 
@@ -70,7 +93,7 @@ close
 for i=1:length(names_vect)
     if strlength(names_vect)>0
         % Binarize the image
-        [ binaryImage,lowThreshold,highThreshold,SpotSize,HoleSize ] = imageBinary(codeFolderName,ImageFolderName,char(names_vect(i)),lowThreshold,Inf,SpotSize,HoleSize,resultsFolderName);
+        [ binaryImage,lowThreshold,highThreshold,SpotSize,HoleSize ] = imageBinary(codeFolderName,ImageFolderNameFormated,char(names_vect(i)),lowThreshold,Inf,SpotSize,HoleSize,resultsFolderName);
     end
 end
 
