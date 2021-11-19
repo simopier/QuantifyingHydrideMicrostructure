@@ -33,6 +33,7 @@ function [RHCF] = RHCF_file(codeFolderName,imageFolderName, filename, resultsFol
 % - filename: Name of the microstructure file.
 % - resultsFolderName: The name of the folder in which the results will be stored. The folder is created if it does not already exist.
 % - resolution: The image resolution in dpi. Enter 0 if you want to use the resolution in the metadata of the images.
+% - band_width: Width of the band used at the center of the image to derive the RHCP. To normalize the size of the band, it is miltiplied by the image resolution.
 
 % Outputs:
 % This function returns the RHCF value for the input microstructure.
@@ -76,7 +77,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analysis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Get the length of the projected hydrides
-hydride_segments_lengths =HydrideSegments(binaryImage);
+hydride_segments_lengths = HydrideSegments(binaryImage);
 
 % Get longest continuous radial segment of hydrides
 Max_Segment = max(hydride_segments_lengths);
